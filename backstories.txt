@@ -1,1 +1,9 @@
-List of Backstories and their weight
+--List of Objectives, not organized
+
+-Structure du site :
+	Une page recensant les déclarations des politiciens (pour avoir un trace)
+	Une page recensant les dernières news de la ville (nouveaux batiments, événements...)
+	Une page recensant les parcs/esapces verts
+	Une page recensant les restaurants/musées
+	
+	 
