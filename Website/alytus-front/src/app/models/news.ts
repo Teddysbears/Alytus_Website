@@ -3,10 +3,11 @@ export interface News {
   title: string;
   subTitle: [string];
   writer: string;
-  date: Date;
+  date: string;
+  map: Boolean;
   keywords: [string];
   image: [{name: string, url: string}];
   smallImage: [{name: string, url: string}];
-  content: string;
+  content: [string];
 }
 

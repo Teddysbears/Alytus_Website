@@ -1,3 +1,15 @@
-<p>
-  news works!
-</p>
+<div class="container bg-faded" *ngIf="(news$ | async) as nl">
+  <div class="row">
+    <div class="col">
+      <div class="mx-auto w-75 p-3 bg-white text-black-50">
+        <h2>{{nl.title}}</h2>
+        <p> <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" alt="time" class="clock"> {{nl.date}}</p>
+        <br>
+        <div *ngFor="let subtitle of nl.subTitle;">
+          <p>{{subtitle}}</p>
+        </div>
+        <p>{{nl.content[0]}} </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router,Event} from "@angular/router";
-import {SlimLoadingBarService} from "ng2-slim-loading-bar";
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router,Event } from "@angular/router";
+import { SlimLoadingBarService } from "ng2-slim-loading-bar";
+import { environment } from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,9 @@ import {SlimLoadingBarService} from "ng2-slim-loading-bar";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  imagePath = environment.imagePath;
+
   constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
     this.router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);

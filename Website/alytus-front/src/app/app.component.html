@@ -1,13 +1,19 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <img class="navbar-brand" src="../../../uploads/logo_alytus.jpg" alt="Alytus logo">
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="nav navbar-nav navbar-center" align="center">
+        <li class="nav-item">
+        <a [routerLink]="'/Account'" class="nav-link">
+          <img [src]="imagePath + '5b2e7abca514e361f73d528ec2038ff3.png'"  class="image-small">
+          Sign in
+        </a>
+        </li>
+        <li class="nav-item">
         <a [routerLink]="'/'" class="nav-link">
-          Home
+         Home
         </a>
       </li>
       <li class="nav-item">
@@ -27,15 +33,18 @@
       </li>
       <li class="nav-item">
         <a [routerLink]="'AboutUs'" class="nav-link">
-          About us
+          Aboutus
         </a>
       </li>
-    </ul>
-      <!--<form class="form-inline my-2 my-lg-0">
+      <li>
+      <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>-->
-  </div>
+      </form>
+      </li>
+      </ul>
+       </div>
+    </div>
 </nav>
 <ng2-slim-loading-bar color="red"></ng2-slim-loading-bar>
 

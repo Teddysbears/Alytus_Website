@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { News } from "../models/news";
 import { Observable } from "rxjs";
 import { NewsService } from "../news.service";
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: 'app-news-list',
@@ -10,6 +11,7 @@ import { NewsService } from "../news.service";
 })
 export class NewsListComponent implements OnInit {
   newsList$: Observable<News[]>;
+  imagePath = environment.imagePath;
 
   constructor(private newsService: NewsService) { }
 

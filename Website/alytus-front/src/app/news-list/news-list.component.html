@@ -1,15 +1,10 @@
-<mat-card  *ngFor="let nl of newsList$ | async">
+<mat-card *ngFor="let nl of newsList$ | async">
   <mat-card-header >
-    <div mat-card-avatar></div>
+    <div mat-card-avatar><img [src]="imagePath + nl.image[0].url"></div>
     <mat-card-title><a [routerLink]="['/News',nl._id]">{{nl.title}}</a></mat-card-title>
     <mat-card-subtitle>{{nl.subTitle[0]}} -- {{nl.subTitle.length}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="nl.image" alt="Photo of a Shiba Inu">
   <mat-card-content>
-    <p [innerHTML]="nl.content"></p>
+    <p [innerHTML]="nl.content[0]"></p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
 </mat-card>
