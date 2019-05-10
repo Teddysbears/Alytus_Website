@@ -1,6 +1,6 @@
 
-mat-card{
-  width: 50%;
+mat-grid-list{
+  width: 60%;
   height: 15%;
   display: block;
   margin-left:auto;
@@ -10,4 +10,13 @@ mat-card{
   color: black;
 }
 
+.navbar-nav {
+  float:none;
+  margin:0 auto;
+  text-align: center;
+  width: 60%
+}
 
+.navbar-nav > li {
+  float:none;
+}
