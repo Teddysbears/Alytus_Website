@@ -20,6 +20,8 @@ import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import { ForumsPageComponent } from './forums-page/forums-page.component';
 import { YourAccountPageComponent } from './your-account-page/your-account-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
     AboutUsPageComponent,
     ForumsPageComponent,
     YourAccountPageComponent,
-    SignInPageComponent
+    SignInPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,10 @@ import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
     BrowserAnimationsModule,
     MaterialModule,
     SlimLoadingBarModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMapboxGLModule.withConfig({
+      accessToken: 'pk.eyJ1IjoiZWxlbjIiLCJhIjoiY2p2Nms2Y2JzMDBxZjRmcGZvdTllOXF0eiJ9.IMiGn8FUOUT4sj0vmb1Myw'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

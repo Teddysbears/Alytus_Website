@@ -12,7 +12,8 @@ export class AppComponent {
 
   imagePath = environment.imagePath;
 
-  constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
+
+constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
     this.router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });

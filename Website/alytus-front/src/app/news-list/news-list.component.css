@@ -9,6 +9,11 @@
   float:none;
 }
 
+.map {
+  height: 500px;
+  width: 500px;
+}
+
 a, a:hover, .btn{outline:none!important;}
 .btn-search{background: #FD3A13; border-color: #FD3A13; color: #fff; padding: 7px 10px}
 .btn-search:hover{background: #ca1b1b; border-color: #ca1b1b}

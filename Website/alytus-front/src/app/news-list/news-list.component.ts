@@ -13,6 +13,7 @@ export class NewsListComponent implements OnInit {
   newsList$: Observable<News[]>;
   imagePath = environment.imagePath;
 
+
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {

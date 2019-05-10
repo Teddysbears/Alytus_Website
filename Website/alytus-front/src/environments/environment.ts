@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  imagePath: 'http://localhost:3000/'
+  imagePath: 'http://localhost:3000/',
+  mapbox: {accessToken: 'pk.eyJ1IjoiZWxlbjIiLCJhIjoiY2p2Nms2Y2JzMDBxZjRmcGZvdTllOXF0eiJ9.IMiGn8FUOUT4sj0vmb1Myw'}
 };
 
 /*

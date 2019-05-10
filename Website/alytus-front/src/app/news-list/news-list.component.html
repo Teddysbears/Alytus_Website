@@ -71,7 +71,14 @@
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <div class="news-block">
-<!--                <div class="news-media"><img class="img-fluid" src="http://grafreez.com/wp-content/temp_demos/river/img/politics1.jpg" alt=""></div>-->
+                <mgl-map class="map"
+                  [style]="'mapbox://styles/mapbox/streets-v9'"
+                  [zoom]="[2]"
+                  [center]="[54.40135,24.05474]"
+                  [centerWithPanTo]="true"
+                  [interactive]="false"
+                ></mgl-map>
+                <!--                <div class="news-media"><img class="img-fluid" src="http://grafreez.com/wp-content/temp_demos/river/img/politics1.jpg" alt=""></div>-->
                 <!--                <div class="news-title">-->
                 <!--                  <h2 class=" title-large"><a href="#">Ray madison may struggle to get best from Paul in a 4-2-3-1 formation</a></h2>-->
                 <!--                </div>-->
