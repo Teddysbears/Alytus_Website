@@ -1,26 +1,122 @@
-<div class="mx-auto w-auto  bg-white text-black-50">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="mx-auto w-auto bg-white text-black-50">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-left: 18%">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">World</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">Politics</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">Business</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">Sports</a> </li>
+        <li class="nav-item active"> <a class="nav-link"[routerLink]="'/News'">Home <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" [routerLink]="'/News/buildings'">Buildings</a> </li>
+        <li class="nav-item"> <a class="nav-link" [routerLink]="'/News/politics'">Politics</a> </li>
+        <li class="nav-item"> <a class="nav-link" [routerLink]="'/News/business'">Business</a> </li>
+        <li class="nav-item"> <a class="nav-link" [routerLink]="'/News/spots'">Sports</a> </li>
       </ul>
     </div>
   </nav>
 </div>
-<mat-grid-list cols="5" rowHeight="100px">
-  <mat-grid-tile *ngFor="let nl of newsList$ | async"
-                 [colspan]=2
-                 [rowspan]=1>
-    <div><img [src]="imagePath + nl.image[0].url"></div>
-    <div>{{nl.subTitle[0]}} -- {{nl.subTitle.length}}</div>
-    <div><a [routerLink]="['/News',nl._id]">{{nl.title}}</a></div>
-    <div>    <p [innerHTML]="nl.content[0]"></p></div>
-  </mat-grid-tile>
-</mat-grid-list>
+
+<section class="banner-sec" *ngIf="(newsList$ | async) as nl">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card"> <img class="img-fluid" [src]="nl[0].image[0].url" [alt]="nl[0].image[0].name">
+          <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[0].keywords[0]}}</span> </div>
+          <div class="card-body">
+            <div class="news-title">
+              <h2 class=" title-small"><a [routerLink]="['/News',nl[0]._id]">{{nl[0].title}}</a></h2>
+            </div>
+            <p class="card-text"><small class="text-time"><em>time</em></small></p>
+          </div>
+        </div>
+        <div class="card"> <img class="img-fluid" [src]="nl[1].image[0].url" [alt]="nl[1].image[0].name">
+          <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[1].keywords[0]}}</span> </div>
+          <div class="card-body">
+            <div class="news-title">
+              <h2 class=" title-small"><a [routerLink]="['/News',nl[1]._id]">{{nl[1].title}}</a></h2>
+            </div>
+            <p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card"> <img class="img-fluid" [src]="nl[2].image[0].url" [alt]="nl[2].image[0].name">
+          <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[2].keywords[0]}}</span> </div>
+          <div class="card-body">
+            <div class="news-title">
+              <h2 class=" title-small"><a [routerLink]="['/News',nl[2]._id]">{{nl[2].title}}</a></h2>
+            </div>
+            <p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>
+          </div>
+        </div>
+        <div class="card"> <img class="img-fluid" [src]="nl[3].image[0].url" [alt]="nl[3].image[0].name">
+          <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[3].keywords[0]}}</span> </div>
+          <div class="card-body">
+            <div class="news-title">
+              <h2 class=" title-small"><a [routerLink]="['/News',nl[3]._id]">{{nl[3].title}}</a></h2>
+            </div>
+            <p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 top-slider">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <div class="news-block">
+<!--                <div class="news-media"><img class="img-fluid" src="http://grafreez.com/wp-content/temp_demos/river/img/politics1.jpg" alt=""></div>-->
+                <!--                <div class="news-title">-->
+                <!--                  <h2 class=" title-large"><a href="#">Ray madison may struggle to get best from Paul in a 4-2-3-1 formation</a></h2>-->
+                <!--                </div>-->
+                <!--                <div class="news-des">Condimentum ultrices mi est a arcu at cum a elementum per cum turpis dui vulputate vestibulum in vehicula montes vel. Mauris nam suspendisse consectetur mus...</div>-->
+                <!--                <div class="time-text"><strong>2h ago</strong></div>-->
+                <!--                <div></div>-->
+                <!--              </div>-->
+                <!--            </div>-->
+                <!--            <div class="carousel-item">-->
+                <!--              <div class="news-block">-->
+                <!--                <div class="news-media"><img class="img-fluid" src="http://grafreez.com/wp-content/temp_demos/river/img/sport1.jpg" alt=""></div>-->
+                <!--                <div class="news-title">-->
+                <!--                  <h2 class=" title-large"><a href="#">An Alternative Form of Mental Health Care Gains a Foothold</a></h2>-->
+                <!--                </div>-->
+                <!--                <div class="news-des">Condimentum ultrices mi est a arcu at cum a elementum per cum turpis dui vulputate vestibulum in vehicula montes vel. Mauris nam suspendisse consectetur mus...</div>-->
+                <!--                <div class="time-text"><strong>2h ago</strong></div>-->
+                <!--                <div></div>-->
+                <!--              </div>-->
+                <!--            </div>-->
+                <!--            <div class="carousel-item">-->
+                <!--              <div class="news-block">-->
+                <!--                <div class="news-media"><img class="img-fluid" src="http://grafreez.com/wp-content/temp_demos/river/img/health.jpg" alt=""></div>-->
+                <!--                <div class="news-title">-->
+                <!--                  <h2 class=" title-large"><a href="#">Key Republican Senator Says She Will Not Vote for former president!</a></h2>-->
+                <!--                </div>-->
+                <!--                <div class="news-des">Condimentum ultrices mi est a arcu at cum a elementum per cum turpis dui vulputate vestibulum in vehicula montes vel. Mauris nam suspendisse consectetur mus...</div>-->
+                <!--                <div class="time-text"><strong>2h ago</strong></div>-->
+                <!--                <div></div>-->
+                <!--              </div>-->
+                <!--            </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--<mat-grid-list cols="5" rowHeight="100px">-->
+<!--  <mat-grid-tile *ngFor="let nl of newsList$ | async"-->
+<!--                 [colspan]=2-->
+<!--                 [rowspan]=1>-->
+<!--    <div><img [src]="imagePath + nl.image[0].url"></div>-->
+<!--    <div>{{nl.subTitle[0]}} &#45;&#45; {{nl.subTitle.length}}</div>-->
+<!--    <div><a [routerLink]="['/News',nl._id]">{{nl.title}}</a></div>-->
+<!--    <div>    <p [innerHTML]="nl.content[0]"></p></div>-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->

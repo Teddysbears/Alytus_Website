@@ -9,4 +9,5 @@ export interface News {
   image: [{name: string, url: string, id: number}];
   smallImage: [{name: string, url: string, id: number}];
   content: [{cont:string, id:number}];
+  createdOn: Date;
 }
