@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { NewsService } from "../news.service";
 import { environment } from "../../environments/environment";
 
+
 @Component({
   selector: 'app-news-list',
   templateUrl: './news-list.component.html',

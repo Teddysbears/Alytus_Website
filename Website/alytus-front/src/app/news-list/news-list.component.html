@@ -5,7 +5,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item active"> <a class="nav-link"[routerLink]="'/News'">Home <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item active"> <a class="nav-link" [routerLink]="'/News'">Home <span class="sr-only">(current)</span></a> </li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="'/News/buildings'">Buildings</a> </li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="'/News/politics'">Politics</a> </li>
         <li class="nav-item"> <a class="nav-link" [routerLink]="'/News/business'">Business</a> </li>
@@ -61,24 +61,23 @@
       <div class="col-md-6 top-slider">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
+
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <div class="news-block">
-                <mgl-map class="map"
-
-                  [style]="'mapbox://styles/mapbox/streets-v9'"
-                  [zoom]="[2]"
-                  [center]="[54.40135,24.05474]"
-                  [centerWithPanTo]="true"
-                  [interactive]="false"
-                ></mgl-map>
+                <app-mapboxmodifier style="width: 100%; height: auto"></app-mapboxmodifier>
+<!--                <mgl-map class="map"-->
+<!--                         [style]="'mapbox://styles/mapbox/streets-v9'"-->
+<!--                         [zoom]="[12]"-->
+<!--                         [center]="[24.05474,54.40135]"-->
+<!--                         [centerWithPanTo]="true"-->
+<!--                         [interactive]="true"-->
+<!--                >-->
+<!--                  <mgl-control mglNavigation>-->
+<!--                  </mgl-control>-->
+<!--                </mgl-map>-->
                 <!--                <div class="news-media"><img class="img-fluid" src="http://grafreez.com/wp-content/temp_demos/river/img/politics1.jpg" alt=""></div>-->
                 <!--                <div class="news-title">-->
                 <!--                  <h2 class=" title-large"><a href="#">Ray madison may struggle to get best from Paul in a 4-2-3-1 formation</a></h2>-->
@@ -118,13 +117,3 @@
     </div>
   </div>
 </section>
-<!--<mat-grid-list cols="5" rowHeight="100px">-->
-<!--  <mat-grid-tile *ngFor="let nl of newsList$ | async"-->
-<!--                 [colspan]=2-->
-<!--                 [rowspan]=1>-->
-<!--    <div><img [src]="imagePath + nl.image[0].url"></div>-->
-<!--    <div>{{nl.subTitle[0]}} &#45;&#45; {{nl.subTitle.length}}</div>-->
-<!--    <div><a [routerLink]="['/News',nl._id]">{{nl.title}}</a></div>-->
-<!--    <div>    <p [innerHTML]="nl.content[0]"></p></div>-->
-<!--  </mat-grid-tile>-->
-<!--</mat-grid-list>-->

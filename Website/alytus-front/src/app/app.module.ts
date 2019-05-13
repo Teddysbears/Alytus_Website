@@ -21,6 +21,7 @@ import { ForumsPageComponent } from './forums-page/forums-page.component';
 import { YourAccountPageComponent } from './your-account-page/your-account-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { MapboxmodifierComponent } from './mapboxmodifier/mapboxmodifier.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     ForumsPageComponent,
     YourAccountPageComponent,
     SignInPageComponent,
+    MapboxmodifierComponent,
   ],
   imports: [
     BrowserModule,
