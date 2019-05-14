@@ -1,15 +1,57 @@
-<div class="container bg-faded" *ngIf="(news$ | async) as nl">
+<app-newsnavbar></app-newsnavbar>
+<div class="container">
   <div class="row">
-    <div class="col">
-      <div class="mx-auto w-75 p-3 bg-white text-black-50">
-        <h2>{{nl.title}}</h2>
-        <p> <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" alt="time" class="clock"> {{nl.date}}</p>
-        <br>
-        <div *ngFor="let subtitle of nl.subTitle;">
-          <p>{{subtitle}}</p>
+    <div class="col-md-12">
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="news-title">
+                    <h2>{{title}}</h2>
+                  </div>
+                  <div class="news-cats">
+                    <ul class="list-unstyled list-inline mb-1">
+                      <li class="list-inline-item">
+                        <img class="clock"  [src]="imagePath + '3db1694066484887659b421cb616f720.png'" alt="time">
+                        <a [href]="'News/' + time"><small> {{ time  }} </small></a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a [href]="'News/' + writer"><small> {{ writer }} </small> </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div *ngFor="let information of arrayTemplate">
+                    <div [innerHTML]="information">
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="news-footer">
+                    <div class="news-likes">
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa fa-thumbs-o-up text-success"></i> <span class="badge ">Likes</span></button>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa fa-thumbs-o-down text-danger"></i><span class="badge">Disklikes</span></button>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="container-fluid">
+                    <h5>Tags</h5>
+                    <div *ngFor="let keyword of keywords">
+                      <button type="button" class="btn btn-primary">
+                        {{keyword}}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <p>{{nl.content[0]}} </p>
       </div>
     </div>
   </div>
 </div>
+
+
+
+

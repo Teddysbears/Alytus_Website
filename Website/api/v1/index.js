@@ -75,7 +75,8 @@ router.delete('/News/:id', (req,res) => {
     const id = req.params.id;
     News.findByIdAndDelete(id, (err,news) => {
         if(err) return res.status(404).json(err);
-        res.status(202).json({message: `news with id : ${news._id} has been deleted with success`})
+        if(!news) return res.status(404).json({message: `news with ${id} not found`});
+        res.status(202).json({message: `news with id : ${news._id} has been deleted with success`});
     });
 });
 
@@ -93,6 +94,21 @@ router.delete('/News', (req,res) => {
     News.deleteMany(condition, (err, result) => {
         if(err) return res.status(404).json(err);
         res.status(202).json(result);
+    });
+});
+
+router.put('/News/:id', upload.single('image'), (req, res) => {
+    const id = req.params.id;
+    const conditions = { _id: id};
+    const news = {...req.body, image: lastUploadedImageName};
+    const update = { $set: news };
+    const options = {
+        upsert: true,
+        new: true
+    };
+    News.findOneAndUpdate(conditions, update, options, (err, response) => {
+        if(err) return res.status(500).json({ msg: 'update failed', error: err });
+        res.status(200).json({ msg: `document with id ${id} updated`, response: response });
     });
 });
 

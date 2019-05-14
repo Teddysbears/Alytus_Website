@@ -22,6 +22,10 @@ import { YourAccountPageComponent } from './your-account-page/your-account-page.
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MapboxmodifierComponent } from './mapboxmodifier/mapboxmodifier.component';
+import { NewsnavbarComponent } from './newsnavbar/newsnavbar.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminnewsComponent } from './adminnews/adminnews.component';
 
 
 @NgModule({
@@ -41,6 +45,10 @@ import { MapboxmodifierComponent } from './mapboxmodifier/mapboxmodifier.compone
     YourAccountPageComponent,
     SignInPageComponent,
     MapboxmodifierComponent,
+    NewsnavbarComponent,
+    ErrorpageComponent,
+    AdminComponent,
+    AdminnewsComponent,
   ],
   imports: [
     BrowserModule,
