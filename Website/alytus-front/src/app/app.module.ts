@@ -13,11 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { TourismComponent } from './tourism/tourism.component';
 import { YourAccountComponent } from './your-account/your-account.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { ForumsComponent } from './forums/forums.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { TourismPageComponent } from './tourism-page/tourism-page.component';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
-import { ForumsPageComponent } from './forums-page/forums-page.component';
 import { YourAccountPageComponent } from './your-account-page/your-account-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
@@ -26,6 +24,7 @@ import { NewsnavbarComponent } from './newsnavbar/newsnavbar.component';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminnewsComponent } from './adminnews/adminnews.component';
+import { NewsListAdminComponent } from './news-list-admin/news-list-admin.component';
 
 
 @NgModule({
@@ -37,11 +36,9 @@ import { AdminnewsComponent } from './adminnews/adminnews.component';
     TourismComponent,
     YourAccountComponent,
     SignInComponent,
-    ForumsComponent,
     AboutUsComponent,
     TourismPageComponent,
     AboutUsPageComponent,
-    ForumsPageComponent,
     YourAccountPageComponent,
     SignInPageComponent,
     MapboxmodifierComponent,
@@ -49,6 +46,7 @@ import { AdminnewsComponent } from './adminnews/adminnews.component';
     ErrorpageComponent,
     AdminComponent,
     AdminnewsComponent,
+    NewsListAdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,4 +23,12 @@ export class NewsService {
   deleteSingleNews(id: string) {
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
+
+  dispatchBlogpostCreated(id: string){
+    this.NewsCreated.next(id);
+  }
+
+  handleBlogpostCreated(){
+    return this.NewsCreated.asObservable();
+  }
 }
