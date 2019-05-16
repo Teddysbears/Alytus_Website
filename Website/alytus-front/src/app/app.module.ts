@@ -25,6 +25,8 @@ import { ErrorpageComponent } from './errorpage/errorpage.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminnewsComponent } from './adminnews/adminnews.component';
 import { NewsListAdminComponent } from './news-list-admin/news-list-admin.component';
+import { NewsCreateComponent } from './news-create/news-create.component';
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { NewsListAdminComponent } from './news-list-admin/news-list-admin.compon
     AdminComponent,
     AdminnewsComponent,
     NewsListAdminComponent,
+    NewsCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,9 +58,11 @@ import { NewsListAdminComponent } from './news-list-admin/news-list-admin.compon
     MaterialModule,
     SlimLoadingBarModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     NgxMapboxGLModule.withConfig({
       accessToken: 'pk.eyJ1IjoiZWxlbjIiLCJhIjoiY2p2Nms2Y2JzMDBxZjRmcGZvdTllOXF0eiJ9.IMiGn8FUOUT4sj0vmb1Myw'
-    })
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

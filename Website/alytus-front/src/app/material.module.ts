@@ -4,7 +4,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatCardModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material";
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatListModule} from "@angular/material";
+import { MatListModule } from "@angular/material";
+import { MatFormFieldModule } from "@angular/material";
 
 @NgModule({
   declarations: [],
@@ -14,7 +15,8 @@ import { MatListModule} from "@angular/material";
     MatCardModule,
     MatButtonModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule
   ],
   exports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { MatListModule} from "@angular/material";
     MatCardModule,
     MatButtonModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule { }

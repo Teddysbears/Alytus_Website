@@ -8,6 +8,7 @@ import { News } from "./models/news";
 })
 export class NewsService {
   baseUrl = 'http://localhost:3000/News';
+  baseImgUrl = 'http://localhost:3000/server';
   private NewsCreated = new Subject<string>();
 
   constructor(private httpClient: HttpClient) { }
@@ -20,11 +21,19 @@ export class NewsService {
     return this.httpClient.get<News>(`${this.baseUrl}/${id}`);
   }
 
+  createNews(news: News){
+    return this.httpClient.post<News>(this.baseUrl, news);
+  }
+
+  uploadImage(formData: FormData) {
+    return this.httpClient.post<any>(`${this.baseImgUrl}/images`,formData);
+  }
+
   deleteSingleNews(id: string) {
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
 
-  dispatchBlogpostCreated(id: string){
+  dispatchNewsCreated(id: string){
     this.NewsCreated.next(id);
   }
 

@@ -5,6 +5,7 @@ export interface News {
   writer: string;
   date: string;
   map: Boolean;
+  coordinates: [{lat: number, lng: number}],
   keywords: [string];
   image: [{name: string, url: string, id: number}];
   smallImage: [{name: string, url: string, id: number}];
