@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <div class="card"> <img class="img-fluid" [src]="nl[0].image[0].url" [alt]="nl[0].image[0].name">
+        <div class="card"> <img class="img-fluid" [src]="imagePath + nl[0].images[0].url" [alt]="nl[0].images[0].name">
           <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[0].keywords[0]}}</span> </div>
           <div class="card-body">
             <div class="news-title">
@@ -12,7 +12,7 @@
             <p class="card-text"><small class="text-time"><em>time</em></small></p>
           </div>
         </div>
-        <div class="card"> <img class="img-fluid" [src]="nl[1].image[0].url" [alt]="nl[1].image[0].name">
+        <div class="card"> <img class="img-fluid" [src]="imagePath + nl[1].images[0].url" [alt]="nl[1].images[0].name">
           <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[1].keywords[0]}}</span> </div>
           <div class="card-body">
             <div class="news-title">
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="card"> <img class="img-fluid" [src]="nl[2].image[0].url" [alt]="nl[2].image[0].name">
+        <div class="card"> <img class="img-fluid" [src]="imagePath + nl[2].images[0].url" [alt]="nl[2].images[0].name">
           <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[2].keywords[0]}}</span> </div>
           <div class="card-body">
             <div class="news-title">
@@ -32,7 +32,7 @@
             <p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>
           </div>
         </div>
-        <div class="card"> <img class="img-fluid" [src]="nl[3].image[0].url" [alt]="nl[3].image[0].name">
+        <div class="card"> <img class="img-fluid" [src]="imagePath + nl[3].images[0].url" [alt]="nl[3].images[0].name">
           <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[3].keywords[0]}}</span> </div>
           <div class="card-body">
             <div class="news-title">

@@ -5,7 +5,8 @@ import { MatCardModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material";
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from "@angular/material";
-import { MatFormFieldModule } from "@angular/material";
+import {MatFormFieldModule,MatInputModule} from '@angular/material/';
+
 
 @NgModule({
   declarations: [],
@@ -16,7 +17,8 @@ import { MatFormFieldModule } from "@angular/material";
     MatButtonModule,
     MatGridListModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { MatFormFieldModule } from "@angular/material";
     MatButtonModule,
     MatGridListModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class MaterialModule { }
