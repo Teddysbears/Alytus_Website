@@ -6,7 +6,7 @@ const newSchema = new mongoose.Schema({
     writer: String,
     date: String,
     map: Boolean,
-    coordinates: [{lat: Number, lng: Number}],
+    coordinates: [{lat: Number, lng: Number, _id:false}],
     keywords: [String],
     images: [{name: String, url: String,id: Number, _id: false}],
     smallImages: [{name: String, url: String,id: Number, _id: false}],

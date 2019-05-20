@@ -40,4 +40,8 @@ export class NewsService {
   handleBlogpostCreated(){
     return this.NewsCreated.asObservable();
   }
+
+  updateNews(newsId: string, editedNews: News) {
+    return this.httpClient.put(`${this.baseUrl}/${newsId}`, editedNews);
+  }
 }

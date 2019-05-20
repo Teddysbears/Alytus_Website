@@ -23,11 +23,10 @@ import { MapboxmodifierComponent } from './mapboxmodifier/mapboxmodifier.compone
 import { NewsnavbarComponent } from './newsnavbar/newsnavbar.component';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
 import { AdminComponent } from './admin/admin.component';
-import { AdminnewsComponent } from './adminnews/adminnews.component';
 import { NewsListAdminComponent } from './news-list-admin/news-list-admin.component';
 import { NewsCreateComponent } from './news-create/news-create.component';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-
+import { NewsEditComponent } from './news-edit/news-edit.component';
 
 @NgModule({
   declarations: [
@@ -47,9 +46,9 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
     NewsnavbarComponent,
     ErrorpageComponent,
     AdminComponent,
-    AdminnewsComponent,
     NewsListAdminComponent,
     NewsCreateComponent,
+    NewsEditComponent,
   ],
   imports: [
     BrowserModule,
