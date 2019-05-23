@@ -7,7 +7,7 @@ import { News } from "./models/news";
   providedIn: 'root'
 })
 export class NewsService {
-  baseUrl = 'http://localhost:3000/News';
+    baseUrl = 'http://localhost:3000/News';
   baseImgUrl = 'http://localhost:3000/server';
   private NewsCreated = new Subject<string>();
 

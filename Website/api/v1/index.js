@@ -44,6 +44,7 @@ router.post('/News', (req,res)=> {
     });
 });
 
+
 //file upload configuration
 const storage = multer.diskStorage({
     destination: './uploads/',
@@ -73,12 +74,13 @@ router.post('/sendmail', (req,res) => {
     console.log("sendmail");
     let user = req.body;
     sendMail(user,info => {
-       console.log(`email has been send ${info.message}`);
+        console.log(`email has been send ${info.accepted}`);
         res.send(info);
     });
 });
 
 async function sendMail(user, callback){
+    console.log(user);
     // Generate test SMTP service account from ethereal.email
     let testAccount = await nodemailer.createTestAccount();
 
@@ -92,10 +94,11 @@ async function sendMail(user, callback){
             pass: testAccount.pass // generated ethereal password
         }
     });
+    console.log(user.email);
 
     let mailOptions = {
-        from: '"TestMail👻" <foo@example.com>', // sender address
-        to: user.email, // list of receivers
+        from: user.email, // sender address
+        to: "hpf5mq+2l5aikjq0z7tw@sharklasers.com", // list of receivers
         subject: user.subject, // Subject line
         text: user.content, // plain text body
         html: "<b>Hello world?</b>" // html body

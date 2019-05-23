@@ -119,7 +119,7 @@
           <h1> Contact Us </h1>
         </div>
         <div class="contact">
-          <form [formGroup]="sendMailForm"  (submit)="sendMail()">
+          <form [formGroup]="sendMailForm" (submit)="sendMail()">
             <!-- Regex for title is : [A-Z][a-z A-Z ,><;:?.\!\"\'-\_\`\@\(\)\[\]\{\}\$\£\*\+\= 1-9\n\&]+ -->
             <div class="form-mail">
             <p>
@@ -131,8 +131,8 @@
             </p>
             <p>
               <mat-form-field  appearance="legacy" class="field">
-                <mat-label>Mail</mat-label>
-                <input matInput formControlName="mail" placeholder="Your Mail" required>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Your Mail" required>
                 <mat-hint class="some-color">text</mat-hint>
               </mat-form-field>
             </p>
