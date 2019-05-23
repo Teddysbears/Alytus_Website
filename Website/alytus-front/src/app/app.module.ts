@@ -15,7 +15,6 @@ import { YourAccountComponent } from './your-account/your-account.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { TourismPageComponent } from './tourism-page/tourism-page.component';
-import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import { YourAccountPageComponent } from './your-account-page/your-account-page.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
@@ -39,7 +38,6 @@ import { NewsEditComponent } from './news-edit/news-edit.component';
     SignInComponent,
     AboutUsComponent,
     TourismPageComponent,
-    AboutUsPageComponent,
     YourAccountPageComponent,
     SignInPageComponent,
     MapboxmodifierComponent,
