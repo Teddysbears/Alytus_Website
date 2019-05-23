@@ -26,6 +26,8 @@ import { NewsListAdminComponent } from './news-list-admin/news-list-admin.compon
 import { NewsCreateComponent } from './news-create/news-create.component';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NewsEditComponent } from './news-edit/news-edit.component';
+import { NgxEditorModule} from "ngx-editor";
+
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { NewsEditComponent } from './news-edit/news-edit.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxEditorModule,
     NgxMapboxGLModule.withConfig({
       accessToken: 'pk.eyJ1IjoiZWxlbjIiLCJhIjoiY2p2Nms2Y2JzMDBxZjRmcGZvdTllOXF0eiJ9.IMiGn8FUOUT4sj0vmb1Myw'
     }),

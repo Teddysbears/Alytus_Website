@@ -6,15 +6,25 @@
 .about {
   text-align: center;
   border: 1px solid black;
+  margin-bottom: 50px;
 }
 .image02 {
-  width: 90%;
-  height: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 100%;
 }
+
+.cardcontainer {
+  padding: 10px;
+}
+
+.card-pad {
+  padding-bottom: 10px;
+}
+
 .content-left {
   text-align: left;
+  font-family: Belgrano_Regular, serif;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .title {
@@ -24,4 +34,35 @@
 
 .sub-title {
   font-family: 'Monument_Valley', sans-serif;
+}
+
+.content-right {
+  text-align: left;
+  font-family: Belgrano_Regular, serif;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+.form-mail {
+  padding-left: 10%;
+  text-align: left;
+}
+
+
+.editor {
+  width: 80%;
+  min-height: 150px;
+  font-family: Belgrano_Regular, serif;
+  padding-bottom: 20px;
+}
+
+.send {
+  font-family: Monument_Valley, serif;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.field {
+  width: 70%;
+  font-family: Belgrano_Regular, serif;
 }
