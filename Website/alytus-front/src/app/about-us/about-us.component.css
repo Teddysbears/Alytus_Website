@@ -1,7 +1,27 @@
 .image01 {
   width: 100%;
   height: auto;
+  margin-bottom: 5%;
 }
-.about{
+.about {
   text-align: center;
+  border: 1px solid black;
+}
+.image02 {
+  width: 90%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.content-left {
+  text-align: left;
+}
+
+.title {
+  font-family: 'Monument_Valley', serif;
+  font-size: 20px;
+}
+
+.sub-title {
+  font-family: 'Monument_Valley', sans-serif;
 }

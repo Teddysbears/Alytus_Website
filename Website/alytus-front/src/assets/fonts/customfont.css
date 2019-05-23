@@ -1,0 +1,9 @@
+@font-face {
+  font-family: Monument_Valley;
+  src: url('~src/assets/fonts/Monument_Valley_1.2-Regular.otf') format("opentype");
+}
+
+@font-face {
+  font-family: Belgrano_Regular;
+  src: url('~src/assets/fonts/Belgrano-Regular.ttf') format("truetype");
+}
