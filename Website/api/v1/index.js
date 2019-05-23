@@ -4,6 +4,7 @@ const News = require('../models/new');
 const multer = require('multer');
 const crypto = require('crypto');
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 
 
@@ -67,6 +68,42 @@ router.post('/server/images', upload.single('image'), (req,res) => {
         res.status(201).send({filename: req.file.filename, file: req.file});
     }
 });
+
+router.post('/sendmail', (req,res) => {
+    console.log("sendmail");
+    let user = req.body;
+    sendMail(user,info => {
+       console.log(`email has been send ${info.message}`);
+        res.send(info);
+    });
+});
+
+async function sendMail(user, callback){
+    // Generate test SMTP service account from ethereal.email
+    let testAccount = await nodemailer.createTestAccount();
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: testAccount.user, // generated ethereal user
+            pass: testAccount.pass // generated ethereal password
+        }
+    });
+
+    let mailOptions = {
+        from: '"TestMail👻" <foo@example.com>', // sender address
+        to: user.email, // list of receivers
+        subject: user.subject, // Subject line
+        text: user.content, // plain text body
+        html: "<b>Hello world?</b>" // html body
+    };
+
+    let info = await transporter.sendMail(mailOptions);
+    callback(info);
+}
 
 let lastUploadedImageName = '';
 

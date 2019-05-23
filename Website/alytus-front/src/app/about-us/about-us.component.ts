@@ -22,7 +22,7 @@ export class AboutUsComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendMail(formDirective: FormGroupDirective) {
-
+  sendMail() {
+    console.log(this.sendMailForm.value);
   }
 }

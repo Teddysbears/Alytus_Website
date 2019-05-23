@@ -119,7 +119,7 @@
           <h1> Contact Us </h1>
         </div>
         <div class="contact">
-          <form [formGroup]="sendMailForm" #formDirective="ngForm" (submit)="sendMail(formDirective)">
+          <form [formGroup]="sendMailForm"  (submit)="sendMail()">
             <!-- Regex for title is : [A-Z][a-z A-Z ,><;:?.\!\"\'-\_\`\@\(\)\[\]\{\}\$\£\*\+\= 1-9\n\&]+ -->
             <div class="form-mail">
             <p>

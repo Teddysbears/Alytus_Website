@@ -10,7 +10,7 @@ const connection = mongoose.connection;
 app.set('port',(process.env.PORT || 3000));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cors());
+app.use(cors({origin: "*"}));
 
 
 const uploadDir = require('path').join(__dirname,'/uploads');

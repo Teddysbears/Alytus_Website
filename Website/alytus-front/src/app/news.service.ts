@@ -37,7 +37,7 @@ export class NewsService {
     this.NewsCreated.next(id);
   }
 
-  handleBlogpostCreated(){
+  handleNewsCreated(){
     return this.NewsCreated.asObservable();
   }
 
