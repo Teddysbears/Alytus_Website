@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'news/:id', component: NewsComponent },
   { path: 'news', component: NewsListComponent},
   { path: 'tourism', component: TourismPageComponent},
-  { path: 'aboutUs', component: AboutUsComponent},
+  { path: 'aboutus', component: AboutUsComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'admin/news', component: NewsListAdminComponent},
   { path: 'admin/news/create', component: NewsCreateComponent},

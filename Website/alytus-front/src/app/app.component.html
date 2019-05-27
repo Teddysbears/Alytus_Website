@@ -33,7 +33,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a [routerLink]="'aboutUs'" class="nav-link">
+        <a [routerLink]="'aboutus'" class="nav-link">
           Aboutus
         </a>
       </li>
@@ -50,3 +50,18 @@
 <ng2-slim-loading-bar color="red" ></ng2-slim-loading-bar>
 
 <router-outlet></router-outlet>
+
+<footer class="footer">
+  <div class="container footer-container">
+    <hr>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/terms'"> Terms of Use </a></li>
+      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/aboutus'"> About us </a></li>
+      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/'"> Terms of Use </a></li>
+      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/'"> Terms of Use </a></li>
+      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/'"> Terms of Use </a></li>
+
+
+    </ul>
+  </div>
+</footer>
