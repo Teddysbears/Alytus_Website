@@ -9,18 +9,57 @@
 }
 
 .container {
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 .carousel-item {
-  background-color: #898989;
   position: relative;
 }
 
 img {
-  width: 500px;
-  height: 500px;
+  max-height: 360px;
+  width: 100%;
+  height: auto;
+  -webkit-filter: brightness(0.50);
+  filter: brightness(0.50);
 }
 .jumbotron {
-  background: none
+  background: none;
 }
+
+.small-title {
+  font-size: 180%;
+}
+
+.home-head {
+  margin-bottom: 20px;
+}
+
+.time {
+  vertical-align: center;
+  text-align: center;
+}
+
+.small-subtitle {
+  text-align: left;
+  font-family: Belgrano_Regular, serif;
+  font-size: 120%;
+  margin-bottom: 10px;
+}
+
+.top-slider {
+}
+
+.clock {
+  width: 17px;
+  height: 17px;
+  font-palette: light;
+  margin-right: 5px;
+}
+a:link {
+  color: white;
+}
+a:visited {
+  color: white;
+}
+

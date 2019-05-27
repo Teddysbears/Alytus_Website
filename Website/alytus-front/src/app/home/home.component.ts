@@ -70,4 +70,7 @@ export class HomeComponent implements OnInit {
   }
 
 
+  imageLink(_id: string) {
+    
+  }
 }
