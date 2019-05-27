@@ -16,7 +16,7 @@ router.get('/ping', (req, res) => {
     res.status(200).json({ msg: 'pong', date: new Date()});
 });
 
-router.get('/News',(req, res) => {
+router.get('/news',(req, res) => {
     News.find()
         .sort({'createdOn': -1})
         .exec()
@@ -27,7 +27,7 @@ router.get('/News',(req, res) => {
 });
 
 
-router.get('/News/:id', (req,res) => {
+router.get('/news/:id', (req,res) => {
     const id = req.params.id;
     News.findById(id)
         .then(New => res.status(200).json(New))
@@ -36,7 +36,7 @@ router.get('/News/:id', (req,res) => {
         }));
 });
 
-router.post('/News', (req,res)=> {
+router.post('/news', (req,res)=> {
     const New = new News(req.body);
     New.save((err, News) =>{
         if(err) return res.status(500).json(err);
@@ -111,7 +111,7 @@ async function sendMail(user, callback){
 let lastUploadedImageName = '';
 
 
-router.delete('/News/:id', (req,res) => {
+router.delete('/news/:id', (req,res) => {
     const id = req.params.id;
     News.findByIdAndDelete(id, (err,news) => {
         if(err) return res.status(404).json(err);
@@ -120,7 +120,7 @@ router.delete('/News/:id', (req,res) => {
     });
 });
 
-router.delete('/News', (req,res) => {
+router.delete('/news', (req,res) => {
     const ids = req.query.ids;
     console.log('query ids', ids);
     const allIds = ids.split(',').map(id => {
@@ -137,7 +137,7 @@ router.delete('/News', (req,res) => {
     });
 });
 
-router.put('/News/:id', upload.single('image'), (req, res) => {
+router.put('/news/:id', upload.single('image'), (req, res) => {
     const id = req.params.id;
     const conditions = { _id: id};
     const news = {...req.body, image: lastUploadedImageName};

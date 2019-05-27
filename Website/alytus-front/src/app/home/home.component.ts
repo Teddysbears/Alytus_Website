@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {News} from "../models/news";
 import {NewsService} from "../news.service";
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -67,10 +68,5 @@ export class HomeComponent implements OnInit {
         this.business = true;
       }
     }
-  }
-
-
-  imageLink(_id: string) {
-    
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {environment} from "../../environments/environment";
-import {FormBuilder, FormGroupDirective} from "@angular/forms";
+import {FormBuilder} from "@angular/forms";
 import {ContactService} from "../contact.service";
 
 @Component({

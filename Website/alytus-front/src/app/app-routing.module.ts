@@ -14,15 +14,15 @@ import {AboutUsComponent} from "./about-us/about-us.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'Account', component: SignInPageComponent},
-  { path: 'News/:id', component: NewsComponent },
-  { path: 'News', component: NewsListComponent},
-  { path: 'Tourism', component: TourismPageComponent},
-  { path: 'AboutUs', component: AboutUsComponent},
-  { path: 'Admin', component: AdminComponent},
-  { path: 'Admin/News', component: NewsListAdminComponent},
-  { path: 'Admin/News/Create', component: NewsCreateComponent},
-  { path: 'Admin/News/:id', component: NewsEditComponent},
+  { path: 'account', component: SignInPageComponent},
+  { path: 'news/:id', component: NewsComponent },
+  { path: 'news', component: NewsListComponent},
+  { path: 'tourism', component: TourismPageComponent},
+  { path: 'aboutUs', component: AboutUsComponent},
+  { path: 'admin', component: AdminComponent},
+  { path: 'admin/news', component: NewsListAdminComponent},
+  { path: 'admin/news/create', component: NewsCreateComponent},
+  { path: 'admin/news/:id', component: NewsEditComponent},
   { path: '**', component: ErrorpageComponent},
 ];
 
