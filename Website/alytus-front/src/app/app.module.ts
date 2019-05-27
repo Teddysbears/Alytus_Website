@@ -27,6 +27,7 @@ import { NewsCreateComponent } from './news-create/news-create.component';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NewsEditComponent } from './news-edit/news-edit.component';
 import { NgxEditorModule} from "ngx-editor";
+import { WeatherComponent } from './weather/weather.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { NgxEditorModule} from "ngx-editor";
     NewsListAdminComponent,
     NewsCreateComponent,
     NewsEditComponent,
+    WeatherComponent,
   ],
   imports: [
     BrowserModule,
