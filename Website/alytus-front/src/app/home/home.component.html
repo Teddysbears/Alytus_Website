@@ -28,61 +28,75 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div *ngIf="lastNewsOf[0] as activeNews">
-                <img [src]="imagePath + activeNews.images[0].url" class="d-block w-100" [alt]="activeNews.images[0].name">
+                <img [src]="imagePath + activeNews.images[0].url" class="d-block w-100 img-carousel" [alt]="activeNews.images[0].name">
                 <div class="carousel-caption">
-                  <div class="jumbotron jumbotron-fluid">
-                    <h6 class="small-title"><a [routerLink]="['/news/',activeNews._id]">{{activeNews.title}}</a></h6>
-                    <hr class="my-4">
+                  <div class="box-part text-center">
+                    <div class="title">
+                      <h6 class="small-title"><a [routerLink]="['/news/',activeNews._id]">{{activeNews.title}}</a></h6>
+                    </div>
                     <div class="col-md-6 time">
-                      <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" [alt]="'clock'" class="clock">{{activeNews.date}}
+                      <div class="card-body">
+                        <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" [alt]="'clock'" class="clock">{{activeNews.date}}
+                      </div>
                     </div>
                   </div>
-                  <a [routerLink]="['/news/type/',activeNews.keywords[0].toLowerCase()]"><p>{{activeNews.keywords[0]}}</p></a>
+                  <div class="text">
+                    <a [routerLink]="['/news/type/',activeNews.keywords[0].toLowerCase()]"><p class="type">{{activeNews.keywords[0]}}</p></a>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="carousel-item">
               <div *ngIf="lastNewsOf[1] as activeNews">
-                <img [src]="imagePath + activeNews.images[0].url" class="d-block w-100" [alt]="activeNews.images[0].name">
+                <img [src]="imagePath + activeNews.images[0].url" class="d-block w-100 img-carousel" [alt]="activeNews.images[0].name">
                 <div class="carousel-caption">
-                  <div class="jumbotron jumbotron-fluid">
-                    <h1 class="small-title"><a [routerLink]="['/news/',activeNews._id]">{{activeNews.title}}</a></h1>
-                    <hr class="my-4">
+                  <div class="box-part text-center">
+                    <div class="title">
+                      <h1 class="small-title"><a [routerLink]="['/news/',activeNews._id]">{{activeNews.title}}</a></h1>
+                    </div>
                     <div class="col-md-6 time">
-                      <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" [alt]="'clock'" class="clock">{{activeNews.date}}
+                      <div class="card-body">
+                        <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" [alt]="'clock'" class="clock">{{activeNews.date}}
+                      </div>
                     </div>
                   </div>
-                  <a [routerLink]="['/news/type/',activeNews.keywords[0].toLowerCase()]"><p>{{activeNews.keywords[0]}}</p></a>
+                  <a [routerLink]="['/news/type/',activeNews.keywords[0].toLowerCase()]"><p class="type">{{activeNews.keywords[0]}}</p></a>
                 </div>
               </div>
             </div>
             <div class="carousel-item">
               <div *ngIf="lastNewsOf[2] as activeNews">
-                <img [src]="imagePath + activeNews.images[0].url" class="d-block w-100" [alt]="activeNews.images[0].name">
+                <img [src]="imagePath + activeNews.images[0].url" class="d-block w-100 img-carousel" [alt]="activeNews.images[0].name">
                 <div class="carousel-caption">
-                  <div class="jumbotron">
-                    <h1 class="small-title"><a [routerLink]="['/news/',activeNews._id]">{{activeNews.title}}</a></h1>
-                    <hr class="my-4">
+                  <div class="box-part text-center">
+                    <div class="title">
+                      <h1 class="small-title"><a [routerLink]="['/news/',activeNews._id]">{{activeNews.title}}</a></h1>
+                    </div>
                     <div class="col-md-6 time">
-                      <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" [alt]="'clock'" class="clock">{{activeNews.date}}
+                      <div class="card-body">
+                        <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" [alt]="'clock'" class="clock">{{activeNews.date}}
+                      </div>
                     </div>
                   </div>
-                  <a [routerLink]="['/news/type/',activeNews.keywords[0].toLowerCase()]"><p>{{activeNews.keywords[0]}}</p></a>
+                  <a [routerLink]="['/news/type/',activeNews.keywords[0].toLowerCase()]"><p class="type">{{activeNews.keywords[0]}}</p></a>
                 </div>
               </div>
             </div>
             <div class="carousel-item">
               <div *ngIf="lastNewsOf[3] as activeNews">
-                <img [src]="imagePath + activeNews.images[0].url" class="d-block w-100" [alt]="activeNews.images[0].name">
+                <img [src]="imagePath + activeNews.images[0].url" class="d-block w-100 img-carousel" [alt]="activeNews.images[0].name">
                 <div class="carousel-caption">
-                  <div class="jumbotron">
-                    <h1 class="small-title"><a [routerLink]="['/news/',activeNews._id]">{{activeNews.title}}</a></h1>
-                    <hr class="my-4">
+                  <div class="box-part text-center">
+                    <div class="title">
+                      <h1 class="small-title"><a [routerLink]="['/news/',activeNews._id]">{{activeNews.title}}</a></h1>
+                    </div>
                     <div class="col-md-6 time">
-                      <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" [alt]="'clock'" class="clock">{{activeNews.date}}
+                      <div class="card-body">
+                        <img [src]="imagePath + '3db1694066484887659b421cb616f720.png'" [alt]="'clock'" class="clock">{{activeNews.date}}
+                      </div>
                     </div>
                   </div>
-                  <a [routerLink]="['/news/type/',activeNews.keywords[0].toLowerCase()]"><p>{{activeNews.keywords[0]}}</p></a>
+                  <a [routerLink]="['/news/type/',activeNews.keywords[0].toLowerCase()]"><p class="type">{{activeNews.keywords[0]}}</p></a>
                 </div>
               </div>
             </div>
@@ -97,8 +111,53 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5">
+    </div>
+    <div class="col-md-5">
+      <div class="small-subtitle">
+        Most Viewed :
+      </div>
+      <div class="row most-viewed">
+        <div class="col-md-6">
+          <div class="card small-card">
+            <img class="card-img-top card-img-small" [src]=" imagePath +'2b466ff327245e8f105fa73308368734.jpg'" alt="Card image cap">
+            <div class="card-img-overlay"><span class="badge badge-pill badge-danger">Tags#0</span></div>
+            <div class="card-body">
+              <h5 class="card-title">Title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card small-card">
+            <img class="card-img-top card-img-small" [src]=" imagePath +'2b466ff327245e8f105fa73308368734.jpg'" alt="Card image cap">
+            <div class="card-img-overlay"><span class="badge badge-pill badge-danger">Tags#0</span></div>
+            <div class="card-body">
+              <h5 class="card-title">Title</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card small-card">
+            <img class="card-img-top card-img-small" [src]=" imagePath +'2b466ff327245e8f105fa73308368734.jpg'" alt="Card image cap">
+            <div class="card-img-overlay"><span class="badge badge-pill badge-danger">Tags#0</span></div>
+            <div class="card-body">
+              <h5 class="card-title">Title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card small-card">
+            <img class="card-img-top card-img-small" [src]=" imagePath +'2b466ff327245e8f105fa73308368734.jpg'" alt="Card image cap">
+            <div class="card-img-overlay"><span class="badge badge-pill badge-danger">Tags#0</span></div>
+            <div class="card-body">
+              <h5 class="card-title">Title</h5>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <hr>
+
 </div>
