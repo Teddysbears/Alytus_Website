@@ -23,18 +23,8 @@
   height: 40px;
 }
 
-.footer {
+.page-footer {
   background-color: #898989;
-}
-
-.footer-container {
-  vertical-align: center;
-}
-.hr-vertically {
-  border:         none;
-  border-left:    1px solid hsl(357, 100%, 27%);
-  height:         20px;
-  width:          2px;
 }
 
 a:link {
@@ -42,4 +32,8 @@ a:link {
 }
 a:visited {
   color: white;
+}
+
+.list-inline-item {
+  margin-right: 20px;
 }

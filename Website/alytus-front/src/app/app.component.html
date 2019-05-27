@@ -1,67 +1,220 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#"><img class="logo" [src]="imagePath+'9d5adb412081444fc25f9b9cc1993a33.png'" alt="alytus"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img class="logo" [src]="imagePath+'9d5adb412081444fc25f9b9cc1993a33.png'" alt="alytus"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="nav navbar-nav navbar-center" align="center">
         <li class="nav-item">
-        <a [routerLink]="'/account'" class="nav-link">
-          <img [src]="imagePath + '5b2e7abca514e361f73d528ec2038ff3.png'"  class="image-small" alt="logo">
-          Sign in
-        </a>
+          <a [routerLink]="'/account'" class="nav-link">
+            <img [src]="imagePath + '5b2e7abca514e361f73d528ec2038ff3.png'"  class="image-small" alt="logo">
+            Sign in
+          </a>
         </li>
         <li class="nav-item">
-        <a [routerLink]="'/'" class="nav-link">
-         Home
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="'/news'" class="nav-link">
-          News
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="'/forums'" class="nav-link">
-          Forums
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="'/tourism'" class="nav-link">
-          Tourism
-        </a>
-      </li>
-      <li class="nav-item">
-        <a [routerLink]="'aboutus'" class="nav-link">
-          Aboutus
-        </a>
-      </li>
-      <li>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      </li>
+          <a [routerLink]="'/'" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/news'" class="nav-link">
+            News
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/forums'" class="nav-link">
+            Forums
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/tourism'" class="nav-link">
+            Tourism
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'aboutus'" class="nav-link">
+            Aboutus
+          </a>
+        </li>
+        <li>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </li>
       </ul>
-       </div>
     </div>
+  </div>
 </nav>
 <ng2-slim-loading-bar color="red" ></ng2-slim-loading-bar>
 
 <router-outlet></router-outlet>
 
-<footer class="footer">
-  <div class="container footer-container">
-    <hr>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/terms'"> Terms of Use </a></li>
-      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/aboutus'"> About us </a></li>
-      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/'"> Terms of Use </a></li>
-      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/'"> Terms of Use </a></li>
-      <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/'"> Terms of Use </a></li>
+<!-- Footer -->
+<footer class="page-footer font-small stylish-color-dark pt-4">
 
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
 
-    </ul>
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Explore Alytus</h5>
+        <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing
+          elit.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">News</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a routerLink="/news/type/buildings">Buildings</a>
+          </li>
+          <li>
+            <a routerLink="/news/type/politics">Politics</a>
+          </li>
+          <li>
+            <a routerLink="/news/type/sports">Sports</a>
+          </li>
+          <li>
+            <a routerLink="/news/type/business">Business</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Tourism</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Others</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
   </div>
+  <!-- Footer Links -->
+
+  <hr>
+
+  <!-- Call to action -->
+  <ul class="list-unstyled list-inline text-center py-2">
+    <li class="list-inline-item">
+      <h5 class="mb-1">Register for free</h5>
+    </li>
+    <li class="list-inline-item">
+      <a routerLink="/account" >Sign up!</a>
+    </li>
+  </ul>
+  <!-- Call to action -->
+
+  <hr>
+
+  <!-- Social buttons -->
+  <ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-fb mx-1" [routerLink]="'https://fr-fr.facebook.com/'"><i class="fa fab fa-facebook"></i></a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-tw mx-1" [routerLink]="'https://twitter.com/'"><i class="fa fab fa-twitter"></i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1" [routerLink]="'https://www.google.com/'"><i class="fa fab fa-google"></i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-li mx-1" [routerLink]="'https://www.linkedin.com/in/sacha-bloch-817214151/'"><i class="fa fab fa-linkedin"></i>
+      </a>
+    </li>
+    <li class="list-inline-item">
+      <a class="btn-floating btn-dribble mx-1" [routerLink]="'https://www.instagram.com/'"><i class="fa fab fa-instagram"></i>
+      </a>
+    </li>
+  </ul>
+  <!-- Social buttons -->
+
+  <hr>
+
+  <!-- Terms -->
+  <ul class="list-inline text-center">
+    <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/terms/'"> Terms of Use </a></li>
+    <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/aboutus/'"> About us </a></li>
+    <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/privacy/'"> Privacy Policy</a></li>
+    <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/usingsthesite/cookies/'"> Cookies </a></li>
+    <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/accessibility/'"> Accessibility Help </a></li>
+    <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/aboutus/'"> Contact Us </a></li>
+    <li class="list-inline-item"><a class="social-icon text-xs-center" [routerLink]="'/notifications/'"> Notifications </a></li>
+  </ul>
+  <!-- Terms -->
+
+  <hr>
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a routerLink="/"> AlytusWebsite.com</a>
+  </div>
+  <!-- Copyright -->
+
 </footer>
+<!-- Footer -->
