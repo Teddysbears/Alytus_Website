@@ -1,0 +1,47 @@
+.image-h2 {
+  height:50px;
+  width:50px;
+}
+.h2_padding{
+  padding-bottom: 20px;
+}
+.form-element {
+  width: 80%;
+  padding-left: 50px;
+}
+.date {
+  padding-left: 50px;
+}
+.mapform {
+  padding-left: 50px;
+}
+.coordinates {
+  padding-left: 60px;
+  width: 40%;
+}
+.containercoordinates{
+  padding-left: 50px;
+  padding-top: 10px;
+}
+.subtitle {
+  padding-left: 60px;
+  width: 55%;
+}
+.subtitle_id{
+  padding-left: 5%;
+  width: 25%;
+}
+.name_image{
+  width: 20%;
+  margin-left: 60px;
+}
+.centeredH{
+  margin-top: 20px;
+}
+.input_file{
+  cursor: pointer; /* "hand" cursor */
+}
+.display_center {
+  margin: 20px 0 40px 0;
+  text-align: center;
+}

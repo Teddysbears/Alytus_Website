@@ -1,0 +1,12 @@
+mgl-map {
+  width: 100%;
+  height: 500px;
+  /*!*height: auto;*!*/
+  /*height: 400px;*/
+  /*max-height: 800px;*/
+  display: block
+}
+
+.mapboxgl-canvas {
+  width: 100%;
+}

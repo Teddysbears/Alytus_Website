@@ -1,0 +1,133 @@
+<app-admin></app-admin>
+<hr>
+<div class="container" *ngIf="news as ns">
+  <h2 class="h2_padding"><span><img class="image-h2" [src]="imagePath + 'a53f1df7bd30c13a2f2079698f6efadb.png'"></span> Edit News</h2>
+  <form #formDirective="ngForm" (submit)="updateNews(formDirective)">
+    <p>
+      <mat-form-field  appearance="legacy" class="form-element">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="ns.title" placeholder="Title" name="title" [ngModelOptions]="{standalone: true}" required>
+        <mat-hint class="some-color">text</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field  appearance="legacy" class="form-element">
+        <mat-label>Writer</mat-label>
+        <input matInput [(ngModel)]="ns.writer" placeholder="Writer" name="writer"  [ngModelOptions]="{standalone: true}" required>
+        <mat-hint class="some-color">text</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field  appearance="legacy" class="form-element">
+        <mat-label>Date</mat-label>
+        <input matInput [(ngModel)]="ns.date" placeholder="Date" name="date" [ngModelOptions]="{standalone: true}" required>
+        <mat-hint class="some-color">text</mat-hint>
+      </mat-form-field>
+    </p>
+    <hr>
+    <div class="mapform">
+      <h5><label>Map: </label></h5>
+      <mat-radio-group [(ngModel)]="ns.map" [ngModelOptions]="{standalone: true}">
+        <mat-radio-button color="primary" value="true">Yes</mat-radio-button>
+        <mat-radio-button color="primary" value="false">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <h5><label class="containercoordinates">Coordinates: </label></h5>
+    <p>
+      <mat-form-field  appearance="legacy" class="coordinates">
+        <mat-label>Lat</mat-label>
+        <input matInput [(ngModel)]="news.coordinates[0].lat" placeholder="Coordinates lat" [ngModelOptions]="{standalone: true}" name="lat">
+        <mat-hint class="some-color">text</mat-hint>
+      </mat-form-field>
+      <mat-form-field  appearance="legacy" class="coordinates">
+        <mat-label>Lng</mat-label>
+        <input matInput [(ngModel)]="news.coordinates[0].lng" placeholder="Coordinates lng" [ngModelOptions]="{standalone: true}" name="lng">
+        <mat-hint class="some-color">text</mat-hint>
+      </mat-form-field>
+    </p>
+    <hr>
+    <div class="centeredHs">
+      <h5>
+        <label class="mapform">Subtitles: </label>
+      </h5>
+    </div>
+    <div *ngFor="let subtitle of ns.subTitles; let i=index">
+      <p>
+        <mat-form-field  appearance="legacy" class="subtitle">
+          <mat-label>Subtitle</mat-label>
+          <textarea matInput [(ngModel)]="subtitle.sub" placeholder="Subtitle" name="subtitle" [ngModelOptions]="{standalone: true}" required></textarea>
+          <mat-hint class="some-color">text</mat-hint>
+        </mat-form-field>
+        <mat-form-field  appearance="legacy" class="subtitle_id">
+          <mat-label>Subtitle Id</mat-label>
+          <input matInput [(ngModel)]="subtitle.id" placeholder="Subtitle Id" name="subtitleid" [ngModelOptions]="{standalone: true}" required>
+          <mat-hint class="some-color">text</mat-hint>
+        </mat-form-field>
+      </p>
+    </div>
+    <hr>
+    <div class="centeredH">
+      <h5>
+        <label class="mapform">Contents: </label>
+      </h5>
+    </div>
+    <div *ngFor="let content of ns.contents">
+      <p>
+        <mat-form-field appearance="legacy" class="subtitle">
+          <mat-label>Content</mat-label>
+          <textarea matInput [(ngModel)]="content.cont" placeholder="Content" name="content" [ngModelOptions]="{standalone: true}" required></textarea>
+          <mat-hint class="some-color">text</mat-hint>
+        </mat-form-field>
+        <mat-form-field  appearance="legacy" class="subtitle_id">
+          <mat-label>Content Id</mat-label>
+          <input matInput [(ngModel)]="content.id" placeholder="Content Id" name="contentid" [ngModelOptions]="{standalone: true}" required>
+          <mat-hint class="some-color">text</mat-hint>
+        </mat-form-field>
+      </p>
+    </div>
+    <hr>
+    <div class="centeredHs">
+      <h5>
+        <label class="mapform">Images: </label>
+      </h5>
+    </div>
+    <div *ngFor="let image of ns.images; let i=index">
+      <p>
+        <mat-form-field appearance="legacy" class="name_image">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="image.name" placeholder="Name" [ngModelOptions]="{standalone: true}" required>
+          <mat-hint class="some-color">text</mat-hint>
+        </mat-form-field>
+        <input class="input_file" type="file" [name]="'image'" [id]="'image'+i"/>
+        <mat-form-field appearance="legacy">
+          <mat-label>Image Id</mat-label>
+          <input matInput [(ngModel)]="image.id" placeholder="image id" [ngModelOptions]="{standalone: true}" required>
+          <mat-hint class="some-color">text</mat-hint>
+        </mat-form-field>
+        <button type="button" class="btn-info btn-sm" style="margin-left: 10px;" (click)="upload(i)"> Upload </button>
+        <mat-form-field appearance="legacy">
+          <input matInput type="text" [(ngModel)]="image.url" [ngModelOptions]="{standalone: true}" readonly>
+        </mat-form-field>
+      </p>
+    </div>
+    <hr>
+    <div class="centeredH">
+      <h5>
+        <label class="mapform">Keywords: </label>
+      </h5>
+    </div>
+    <div *ngFor="let keyword of ns.keywords; let i=index">
+      <p>
+        <mat-form-field appearance="legacy" class="name_image">
+          <mat-label>Keyword</mat-label>
+          <input matInput [(ngModel)]="ns.keywords[i]" placeholder="keyword" [ngModelOptions]="{standalone: true}">
+          <mat-hint class="some-color">text</mat-hint>
+        </mat-form-field>
+      </p>
+    </div>
+    <hr>
+    <div class="display_center">
+    <button type="submit" class="btn btn-sm btn-success mb-3" style="width: 50%" [disabled]="!formDirective.form.valid"><i class="fa fas fa-pencil-alt"></i> Update News</button>
+    </div>
+  </form>
+</div>

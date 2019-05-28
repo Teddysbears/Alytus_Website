@@ -1,0 +1,29 @@
+<!-- https://github.com/mapbox/maki/blob/master/icons/marker-11.svg -->
+<mgl-map
+  [style]="'mapbox://styles/mapbox/light-v9'"
+  [zoom]="zoom"
+  [center]="center"
+  [cursorStyle]="cursorStyle"
+  (load)="map = $event"
+>
+  <mgl-geojson-source
+    id="symbols-source"
+  >
+    <mgl-feature
+      *ngFor="let geometry of coordinatesArray"
+      [geometry]="geometry"
+    ></mgl-feature>
+  </mgl-geojson-source>
+  <mgl-layer
+    id="symbols"
+    type="symbol"
+    source="symbols-source"
+    [layout]="{
+        'icon-image': 'marker-15'
+      }"
+    (click)="centerMapTo($event)"
+    (mouseEnter)="cursorStyle = 'pointer'"
+    (mouseLeave)="cursorStyle = ''"
+  >
+  </mgl-layer>
+</mgl-map>

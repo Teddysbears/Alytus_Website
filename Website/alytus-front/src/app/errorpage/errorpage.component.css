@@ -1,0 +1,293 @@
+
+.error-content {
+  padding: 0 0 70px;
+}
+.error-text{
+  text-align: center;
+}
+.error {
+  font-size: 100px;
+  font-weight: 100;
+  font-family: Belgrano_Regular, serif;
+}
+
+@keyframes bob {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 1.2em;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes eye-roll {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes beak-roll {
+  0% {
+    transform: rotateZ(25deg);
+  }
+
+  50% {
+    transform: rotateZ(30deg);
+  }
+  100% {
+    transform: rotateZ(25deg);
+  }
+}
+
+
+.im-white-stork {
+  display: grid;
+  position: relative;
+  width: 550px;
+  height: 550px;
+}
+
+.im-white-stork::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 90%;
+  width: 50%;
+  height: 18%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.im-white-stork .top {
+  width: 440px;
+  height: 330px;
+  position: relative;
+  animation: bob 2s infinite;
+}
+
+.im-white-stork:hover .top {
+  animation-play-state: paused;
+}
+
+.im-white-stork .top .im-head {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 150px;
+  top: 30px;
+  border-radius: 50%;
+  background: #F5F5F5;
+}
+
+.im-white-stork .top .im-beak {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 95px;
+  right: 0px;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 180px solid red;
+  transform: rotate(30deg);
+}
+
+.im-white-stork .top .im-head .im-eye {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 15px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background: #42f4e2;
+  animation: eye-roll 1s infinite;
+}
+
+.im-white-stork .top .im-head .im-eye .im-pupil {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  top: 5px;
+  left: 5px;
+  background: black;
+}
+
+
+.im-white-stork .top .im-neck {
+  position: absolute;
+  width: 20px;
+  height: 150px;
+  background: #F5F5F5;
+  top: 60px;
+  right: 190px;
+}
+
+.im-white-stork .im-body {
+  display: inline-block;
+  position: absolute;
+  width: 110px;
+  height: 180px;
+  background-color: #F5F5F5;
+  top: 150px;
+  left: 111px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotateZ(75deg);
+}
+
+.im-white-stork .top .im-feather {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 42px solid transparent;
+  border-right: 100px solid black;
+  border-bottom: 42px solid transparent;
+  top: 241px;
+  left: 10px;
+  transform: rotateZ(-25deg);
+}
+
+.im-white-stork .im-legs {
+  display: inline-block;
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  left: 110px;
+  z-index: -1;
+}
+
+.im-white-stork .im-legs .im-leg-right {
+  width: 110px;
+  height: 220px;
+}
+
+.im-white-stork .im-legs .im-leg-left {
+  width: 110px;
+  height: 220px;
+}
+
+.im-white-stork .im-legs .im-leg-right .im-thigh-right {
+  position: relative;
+  width: 10px;
+  height: 110px;
+  background: red;
+  top: 290px;
+  left: 40px;
+  transform: rotateZ(20deg);
+}
+
+.im-white-stork .im-legs .im-leg-left .im-thigh-left {
+  position: absolute;
+  width: 10px;
+  height: 110px;
+  background: red;
+  top: 290px;
+  left: 25px;
+  transform: rotateZ(20deg);
+}
+
+.im-white-stork .im-legs .im-leg-left .im-shin-left {
+  position: absolute;
+  width: 8px;
+  height: 120px;
+  background: red;
+  top: 390px;
+  left: 8px;
+}
+
+.im-white-stork .im-legs .im-leg-right .im-shin-right {
+  position: absolute;
+  width: 8px;
+  height: 120px;
+  background: red;
+  top: 390px;
+  left: 24px;
+}
+
+.im-white-stork .im-legs .im-leg-right .im-foot-right {
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: red;
+  top: 513px;
+  left: 25px;
+  transform: rotateZ(20deg);
+}
+
+.im-white-stork .im-legs .im-leg-left .im-foot-left {
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: red;
+  top: 513px;
+  left: 8px;
+  transform: rotateZ(20deg);
+}
+
+.im-white-stork:hover .im-legs .im-leg-right .im-thigh-right {
+  transform: translateY(-30px) translateX(-20px) rotateZ(60deg);
+}
+
+.im-white-stork:hover .im-legs .im-leg-right .im-shin-right {
+  transform: translateY(-80px) translateX(-0px) rotateZ(-60deg);
+}
+
+.im-white-stork:hover .im-legs .im-leg-right .im-foot-right {
+  transform: translateY(-95px) translateX(20px) rotateZ(-70deg);
+}
+
+.im-white-stork:hover .top .im-head .im-eye .im-pupil {
+  width: 16px;
+  height: 16px;
+}
+
+.im-white-stork:hover .top .im-head .im-eye {
+  width: 25px;
+  height: 25px;
+}
+
+.im-white-stork:hover .top .im-beak {
+  animation: beak-roll 2s infinite;
+}
+
+.box2 {
+  visibility: hidden;
+  width: 60%;
+  margin: 50px auto;
+  border: 4px solid #00bfb6;
+  padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: #00bfb6;
+  position: relative;
+  top: -480px;
+  right: -250px;
+}
+
+.sb11::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #00bfb6;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: -24px;
+  bottom: 30%;
+}
+
+.show-conversation .im-white-stork:hover, .show-conversation:hover .box2 {
+  visibility: visible;
+}
+

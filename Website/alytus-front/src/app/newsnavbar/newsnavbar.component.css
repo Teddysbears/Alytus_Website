@@ -1,0 +1,10 @@
+.navbar-nav {
+  float:none;
+  margin:0 auto;
+  /*text-align: center;*/
+  width: 60%
+}
+
+.navbar-nav > li {
+  float:none;
+}

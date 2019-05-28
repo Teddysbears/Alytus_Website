@@ -1,0 +1,38 @@
+<app-admin></app-admin>
+<div class="container">
+  <hr>
+  <div class="page-header">
+    <h1>News <a [routerLink]="'/admin/news/create'"  class="btn btn-outline-success float-right"><i class="fa fa-plus-square"></i> Create news</a></h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Title</th>
+          <th scope="col">Akce</th>
+        </tr>
+        </thead>
+          <tbody *ngFor="let news of allNews">
+            <tr scope="row">
+              <td>
+                {{news.date}}
+              </td>
+              <td>
+              <a [routerLink]="['../../news/',news._id]">{{news.title}}</a>
+              </td>
+            <td>
+              <a [routerLink]="['/admin/news/',news._id]" type="button" class="btn btn-outline-primary btn-sm" style="margin-right: 5px"><i class="fa far fa-edit"></i> Edit</a>
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteNews(news._id)"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+            </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

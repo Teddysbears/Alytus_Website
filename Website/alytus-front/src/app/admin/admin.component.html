@@ -1,0 +1,67 @@
+<header id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"><img class="nut" [src]="imagaPath +'16894e2a35cbf580cdbda9b39577fd90.png'" alt=""></span> Dashboard <small>Manage Your Site</small></h1>
+      </div>
+    </div>
+  </div>
+</header>
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="list-group">
+          <a class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            Dashboard
+          </a>
+          <a  [routerLink]="'/admin/news'" class="list-group-item"><span><img class="small-image" [src]="imagaPath +'57061fe4c37236fa4239935986761acd.png'" alt=""></span>News<span class="badge">25</span></a>
+          <a  [routerLink]="'/admin/users'" class="list-group-item"><span><img class="small-image" [src]="imagaPath +'7dbc03ea957ec5784667fa3dfee11169.png'" alt=""></span>Users<span class="badge">126</span></a>
+          <a  [routerLink]="'/admin/map'" class="list-group-item"><span><img class="small-image" [src]="imagaPath +'69a71146d147db9a80cdb1c44049865a.png'" alt=""></span>Map<span class="badge">12</span></a>
+          <a  [routerLink]="'/admin/tourism'" class="list-group-item"><span><img class="small-image" [src]="imagaPath +'367183c2c8ae909bc3431870cc9c53bf.png'" alt=""></span>Tourism<span class="badge">12</span></a>
+        </div>
+        <div class="list-group">
+          <a class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            Dashboard
+          </a>
+          <a  [routerLink]="'/admin/news'" class="list-group-item"><span><img class="small-image" [src]="imagaPath +'57061fe4c37236fa4239935986761acd.png'" alt=""></span> News <span class="badge">25</span></a>
+          <a  [routerLink]="'/admin/users'" class="list-group-item"><span><img class="small-image" [src]="imagaPath +'7dbc03ea957ec5784667fa3dfee11169.png'" alt=""></span> Users <span class="badge">126</span></a>
+          <a  [routerLink]="'/admin/map'" class="list-group-item"><span><img class="small-image" [src]="imagaPath +'69a71146d147db9a80cdb1c44049865a.png'" alt=""></span> Map <span class="badge">12</span></a>
+          <a  [routerLink]="'/admin/tourism'" class="list-group-item"><span><img class="small-image" [src]="imagaPath +'367183c2c8ae909bc3431870cc9c53bf.png'" alt=""></span> Tourism <span class="badge">12</span></a>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="true">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="users-tab" data-toggle="tab" href="#users" role="tab" aria-controls="users" aria-selected="false">Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="map-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="false">Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="tourism-tab" data-toggle="tab" href="#tourism" role="tab" aria-controls="tourism" aria-selected="false">Tourism</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="news" role="tabpanel" aria-labelledby="news-tab">
+              News
+            </div>
+            <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
+              Users
+            </div>
+            <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
+              <app-mapboxmodifier></app-mapboxmodifier>
+            </div>
+            <div class="tab-pane fade" id="tourism" role="tabpanel" aria-labelledby="tourism-tab">
+              Tourism
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
