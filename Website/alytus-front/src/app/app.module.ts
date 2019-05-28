@@ -28,6 +28,10 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NewsEditComponent } from './news-edit/news-edit.component';
 import { NgxEditorModule} from "ngx-editor";
 import { WeatherComponent } from './weather/weather.component';
+import { NewsTypeBuildingsComponent } from './news-type-buildings/news-type-buildings.component';
+import { NewsTypeSportsComponent } from './news-type-sports/news-type-sports.component';
+import { NewsTypeBusinessComponent } from './news-type-business/news-type-business.component';
+import { NewsTypePoliticsComponent } from './news-type-politics/news-type-politics.component';
 
 
 @NgModule({
@@ -51,6 +55,10 @@ import { WeatherComponent } from './weather/weather.component';
     NewsCreateComponent,
     NewsEditComponent,
     WeatherComponent,
+    NewsTypeBuildingsComponent,
+    NewsTypeSportsComponent,
+    NewsTypeBusinessComponent,
+    NewsTypePoliticsComponent,
   ],
   imports: [
     BrowserModule,
