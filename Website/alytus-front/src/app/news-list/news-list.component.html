@@ -1,57 +1,95 @@
 <app-newsnavbar></app-newsnavbar>
 <section class="banner-sec" *ngIf="(newsList$ | async) as nl">
-  <div class="container">
+  <div class="container container-news">
     <div class="row">
       <div class="col-md-3">
-        <div class="card"> <img class="img-fluid" [src]="imagePath + nl[0].images[0].url" [alt]="nl[0].images[0].name">
+        <div class="card card-style"> <img class="card-image" [src]="imagePath + nl[0].images[0].url" [alt]="nl[0].images[0].name">
           <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[0].keywords[0]}}</span> </div>
           <div class="card-body">
-            <div class="news-title">
-              <h2 class=" title-small"><a [routerLink]="['/news',nl[0]._id]">{{nl[0].title}}</a></h2>
-            </div>
+            <h2 class="title-small"><a [routerLink]="['/news',nl[0]._id]">{{nl[0].title}}</a></h2>
             <p class="card-text"><small class="text-time"><em>time</em></small></p>
           </div>
         </div>
-        <div class="card"> <img class="img-fluid" [src]="imagePath + nl[1].images[0].url" [alt]="nl[1].images[0].name">
+        <div class="card card-style"> <img class="card-image" [src]="imagePath + nl[1].images[0].url" [alt]="nl[1].images[0].name">
           <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[1].keywords[0]}}</span> </div>
           <div class="card-body">
-            <div class="news-title">
-              <h2 class=" title-small"><a [routerLink]="['/news',nl[1]._id]">{{nl[1].title}}</a></h2>
-            </div>
+            <a [routerLink]="['/news',nl[1]._id]" routerLinkActive="active"><h2 class="title-small">{{nl[1].title}}</h2></a>
             <p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>
           </div>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="card"> <img class="img-fluid" [src]="imagePath + nl[2].images[0].url" [alt]="nl[2].images[0].name">
+        <div class="card card-style"> <img class="card-image" [src]="imagePath + nl[2].images[0].url" [alt]="nl[2].images[0].name">
           <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[2].keywords[0]}}</span> </div>
           <div class="card-body">
-            <div class="news-title">
-              <h2 class=" title-small"><a [routerLink]="['/news',nl[2]._id]">{{nl[2].title}}</a></h2>
-            </div>
+            <h2 class="title-small"><a [routerLink]="['/news',nl[2]._id]">{{nl[2].title}}</a></h2>
             <p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>
           </div>
         </div>
-        <div class="card"> <img class="img-fluid" [src]="imagePath + nl[3].images[0].url" [alt]="nl[3].images[0].name">
+        <div class="card card-style"> <img class="card-image" [src]="imagePath + nl[3].images[0].url" [alt]="nl[3].images[0].name">
           <div class="card-img-overlay"> <span class="badge badge-pill badge-danger">{{nl[3].keywords[0]}}</span> </div>
           <div class="card-body">
-            <div class="news-title">
-              <h2 class=" title-small"><a [routerLink]="['/news',nl[3]._id]">{{nl[3].title}}</a></h2>
-            </div>
+            <h2 class="title-small"><a [routerLink]="['/news',nl[3]._id]">{{nl[3].title}}</a></h2>
             <p class="card-text"><small class="text-time"><em>3 mins ago</em></small></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6 top-slider">
+      <div class="col-md-6">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <div class="news-block">
-                <app-mapboxmodifier style="width: 100%; height: auto"></app-mapboxmodifier>
+                <app-mapboxmodifier></app-mapboxmodifier>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="type-news">
+      <div class="row type-division">
+        <div class="col-md-6">
+          <div class="title-section">
+            <p><a class="small-link" routerLink="/news/type/politics"><div class="verticalLine-politics">Politics:</div></a></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="title-section">
+            <p><a class="small-link" routerLink="/news/type/politics"><div class="verticalLine-buildings">Buildings:</div></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 news-display" *ngIf="politicsNews as pNews">
+          <a [routerLink]="['/news/',pNews._id]"><img class="image-news" [src]="imagePath + pNews.images[0].url" [alt]="pNews.images[0].name"></a>
+          <div class="title-news"><a class="link-news" [routerLink]="['/news/',pNews._id]"> {{pNews.title}} </a></div>
+        </div>
+        <div class="col-md-6 news-display" *ngIf="buildingsNews as builNews">
+          <a [routerLink]="['/news/',builNews._id]"><img class="image-news" [src]="imagePath + builNews.images[0].url" [alt]="builNews.images[0].name"></a>
+          <div class="title-news"><a class="link-news" [routerLink]="['/news/',builNews._id]"> {{builNews.title}} </a></div>
+        </div>
+      </div>
+      <div class="row type-division">
+        <div class="col-md-6">
+          <div class="title-section">
+            <p><a class="small-link" routerLink="/news/type/politics"><div class="verticalLine-sports">Sports:</div></a></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="title-section">
+            <p><a class="small-link" routerLink="/news/type/politics"><div class="verticalLine-business">Business:</div></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 news-display" *ngIf="sportsNews as sNews">
+          <a [routerLink]="['/news/',sNews._id]"><img class="image-news" [src]="imagePath + sNews.images[0].url" [alt]="sNews.images[0].name"></a>
+          <div class="title-news"><a class="link-news" [routerLink]="['/news/',sNews._id]"> {{sNews.title}} </a></div>
+        </div>
+        <div class="col-md-6 news-display" *ngIf="businessNews as bNews">
+          <a [routerLink]="['/news/',bNews._id]"><img class="image-news" [src]="imagePath + bNews.images[0].url" [alt]="bNews.images[0].name"></a>
+          <div class="title-news"><a class="link-news" [routerLink]="['/news/',bNews._id]"> {{bNews.title}} </a></div>
         </div>
       </div>
     </div>
