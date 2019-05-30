@@ -9,9 +9,11 @@ let getData = html => {
     dataparsed[3] = [];
     dataparsed[4] = [];
     let indicator = 0;
+
     const $ = cheerio.load(html);
     $('*').html().replace('', "&shy");
     let str;
+
     $('.entry-content *').each((i, elem) => {
         str = $(elem).text();
         switch (elem.name) {

@@ -1,2 +1,22 @@
 <app-newsnavbar></app-newsnavbar>
-<p>buildings works !</p>
+<div class="container">
+  <div class="type-title">
+    Buildings:
+  </div>
+  <div class="card" *ngFor="let builNews of buildingsNews; let index=i;">
+    <div class="row division-visible">
+      <div class="col-md-6">
+        <a [routerLink]="['/news/',builNews._id]"><img class="image-news" [src]="imagePath + builNews.images[0].url" [alt]="builNews.images[0].name"></a>
+      </div>
+      <div class="col-md-6 px-3 vertical-text">
+        <div class="card-block px-3">
+          <a [routerLink]="['/news/',builNews._id]"><h5 class="card-title"> {{builNews.title}} </h5></a>
+          <div class="card-text"> {{builNews.subTitles[0].sub}}</div>
+          <div class="card-text"><i class="fa fas fa-pen-square"></i><strong> Writer: </strong> {{builNews.writer}}.</div>
+          <div class="card-text"><i class="fa far fa-clock"></i><strong> Date: </strong> {{builNews.date}}.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

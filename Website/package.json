@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run lint & nodemon app.js & api/scrape/parsing.js",
+    "start": "npm run lint & nodemon app.js && parjs",
+    "parsjs": "node ./api/scrape/parsing.js",
     "lint": "eslint \"**/*.js\""
   },
   "repository": {
@@ -27,13 +28,18 @@
   },
   "dependencies": {
     "@angular/cli": "^7.3.8",
+    "axios": "^0.18.0",
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
+    "eventemitter3": "^3.1.2",
     "express": "^4.16.4",
+    "feedparser": "^2.2.9",
+    "moment": "^2.24.0",
     "mongoose": "^5.5.4",
     "multer": "^1.4.1",
     "nodemailer": "^6.1.1",
     "nodemon": "^1.18.11",
-    "moment": "^2.24.0"
+    "request": "^2.88.0"
   }
 }

@@ -25,7 +25,6 @@ async function getFeed(feedurl,lastModified, newDate, ee) {
         if (response.statusCode === 304) {
             console.log("Error : nothing changed " + response.statusCode);
         } else {
-            console.log('SQUALALA' + '\n\n\n');
             await htmlgetrequest.once('response', async function(response) {
                 if (response.statusCode !== 200) {
                 } else {
@@ -68,7 +67,7 @@ async function getFeed(feedurl,lastModified, newDate, ee) {
                     //console.log('pliusnews' + item.date);
                 } else console.log('bad feed address, please check');
                 articles.push(current );
-                //console.log(current );
+                console.log(current );
             }
         }
         //console.log(articles);

@@ -1,6 +1,5 @@
-const parser = require ('./conditionnalParsing.js');
+const parser = require('./conditionnalParsing');
 const event = require('events');
-require('longjohn').async_trace_limit = -1;
 
 let laikasDate = '2019-05-24T07:01:22.000Z';
 let pliusDate = '2019-05-27T16:45:26.000Z';
