@@ -1,2 +1,22 @@
 <app-newsnavbar></app-newsnavbar>
-<p>sports works !</p>
+<div class="container">
+  <div class="type-title">
+    Sports:
+  </div>
+  <div class="card" *ngFor="let sNews of sportsNews; let index=i;">
+    <div class="row division-visible">
+      <div class="col-md-6">
+        <img class="image-news" [src]="imagePath + sNews.images[0].url" [alt]="sNews.images[0].name">
+      </div>
+      <div class="col-md-6 px-3 vertical-text">
+        <div class="card-block px-3">
+        <h6 class="card-title"> {{sNews.title}} </h6>
+        <div class="card-text"> {{sNews.subTitles[0].sub}}</div>
+          <div class="card-text"><i class="fa fas fa-pen-alt"></i> Writer: {{sNews.writer}}</div>
+        <div class="card-text"><i class="fa far fa-clock"></i>  Date: {{sNews.date}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

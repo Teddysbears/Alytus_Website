@@ -1,0 +1,24 @@
+.type-title {
+  margin-top: 50px;
+  font-family: Belgrano_Regular, serif;
+  font-size: 30px;
+}
+
+.image-news {
+  width: 100%;
+  height: 300px;
+}
+
+.card {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.card-block {
+  padding-top: 10%;
+}
+
+.vertical-text {
+  vertical-align: center;
+}
+
