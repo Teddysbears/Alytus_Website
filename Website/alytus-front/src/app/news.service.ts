@@ -26,6 +26,7 @@ export class NewsService {
   }
 
   uploadImage(formData: FormData) {
+    console.log(formData);
     return this.httpClient.post<any>(`${this.baseImgUrl}/images`,formData);
   }
 

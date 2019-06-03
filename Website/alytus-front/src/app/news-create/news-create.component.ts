@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
-import {Form, FormArray, FormBuilder, FormGroup, FormGroupDirective} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroupDirective} from "@angular/forms";
 import {NewsService} from "../news.service";
 import {environment} from "../../environments/environment";
 
@@ -118,7 +118,7 @@ export class NewsCreateComponent implements OnInit {
       console.log(this.createNewsForm.value);
       this.newsService
         .createNews(this.createNewsForm.value)
-        .subscribe(data => this.handleSucces(data,formDirective),err => this.handleError(err));
+        .subscribe(data => this.handleSucces(data,formDirective),err => NewsCreateComponent.handleError(err));
     }
   }
 
@@ -129,67 +129,13 @@ export class NewsCreateComponent implements OnInit {
     this.newsService.dispatchNewsCreated(data._id);
   }
 
-  handleError(err){
+  static handleError(err){
     console.log('Failed to create news',err);
   }
 
 
   ngOnInit(): void {
   }
-
-  // creationForm: FormGroup;
-  //
-  //
-  // constructor(private fb: FormBuilder, private newsService: NewsService, private el: ElementRef) { }
-  //
-  // ngOnInit() {
-  //   this.createForm();
-  // }
-  //
-  // createForm() {
-  //   this.creationForm = this.fb.group({
-  //     title: '',
-  //     writer: '',
-  //     date: '',
-  //     map: '',
-  //     coordinates: ['',''],
-  //     subTitles: ['',''],
-  //     contents: ['',''],
-  //     image: ['','',''],
-  //     keywords: [''],
-  //   });
-  // }
-  //
-  // upload(){
-  //   //retrieve file upload HTML tag
-  //   let inputElement: HTMLInputElement = this.el.nativeElement.querySelector('#image');
-  //   let fileCount: number = inputElement.files.length;
-  //   if(fileCount > 0) {
-  //     let formData = new FormData();
-  //     formData.append('image',inputElement.files.item(0));
-  //     this.newsService.uploadImage(formData).subscribe(data => console.log(data), err => console.log(err));
-  //   }
-  // }
-  //
-  // createNews(formDirective: FormGroupDirective) {
-  //   if(this.creationForm.valid) {
-  //     console.log(this.creationForm.value);
-  //     this.newsService
-  //       .createNews(this.creationForm.value)
-  //       .subscribe(data => this.handleSucces(data,formDirective),err => this.handleError(err));
-  //   }
-  // }
-  //
-  // handleSucces(data,formDirective){
-  //   console.log('Ok blog news created',data);
-  //   this.creationForm.reset();
-  //   formDirective.resetForm();
-  //   this.newsService.dispatchNewsCreated(data._id);
-  // }
-  //
-  // handleError(err){
-  //   console.log('Failed to create news',err);
-  // }
 
 }
 

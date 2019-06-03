@@ -1,4 +1,3 @@
-/*https://stackblitz.com/edit/ngx-mapbox-gl-tiivhu?file=app%2Fdemo%2Fexamples%2Fcenter-on-symbol.component.ts*/
 import { Component, OnInit } from '@angular/core';
 import {MapMouseEvent, Map} from "mapbox-gl";
 import {environment} from "../../environments/environment";
@@ -37,7 +36,7 @@ export class MapboxmodifierComponent implements OnInit {
   private fillCoordinatesArray() {
     let coordinates: CoordinatesType[] = [new CoordinatesClass()];
     this.allNews.forEach(value => {
-      value.forEach((news, index, array) => {
+      value.forEach((news, index) => {
         if(news.map)
           coordinates[index] = this.fillOne(news.coordinates)});
     });
@@ -51,30 +50,6 @@ export class MapboxmodifierComponent implements OnInit {
     coordinatesNews.type = 'Point';
     return coordinatesNews;
   }
-
-  // geometries = [
-  //   {
-  //     'type': 'Point',
-  //     'coordinates': [
-  //       24.040816, 54.398416
-  //     ]
-  //   },
-  //   {
-  //     'type': 'Point',
-  //     'coordinates': [
-  //       24.059883,54.403609
-  //     ]
-  //   },
-  //   {
-  //     'type': 'Point',
-  //     'coordinates': [
-  //       24.043648, 54.397875
-  //     ]
-  //   }
-  // ];
-
-
-
 
   centerMapTo(evt: MapMouseEvent) {
     this.center = (<any>evt).features[0].geometry.coordinates;

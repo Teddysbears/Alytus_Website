@@ -61,6 +61,7 @@ const storage = multer.diskStorage({
 });
 let upload = multer({storage: storage});
 
+
 //file upload
 router.post('/server/images', upload.single('image'), (req,res) => {
     if(!req.file.originalname.match(/\.(jpg|png|jpeg|gif)$/)){
@@ -69,6 +70,8 @@ router.post('/server/images', upload.single('image'), (req,res) => {
         res.status(201).send({filename: req.file.filename, file: req.file});
     }
 });
+
+
 
 router.post('/sendmail', (req,res) => {
     console.log("sendmail");
