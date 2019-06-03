@@ -71,6 +71,33 @@ router.post('/server/images', upload.single('image'), (req,res) => {
     }
 });
 
+//file upload configuration
+const storageFromExternal = multer.diskStorage({
+    destination: './uploads/',
+    filename: (req, file, callback) => {
+        crypto.pseudoRandomBytes(16, function (err, raw) {
+            if (err) return callback(err);
+            //callback(null, raw.toString('hex') + path.extname(file.originalname));
+            lastUploadedImageName = raw.toString('hex') + path.extname(file.originalname);
+            console.log('lastUploadedImage', lastUploadedImageName);
+            callback(null,lastUploadedImageName);
+        });
+    }
+
+});
+let uploadExternal = multer({storageFromExternal: storageFromExternal});
+
+
+//file upload
+router.post('/server/images/external', upload.single('image'), (req,res) => {
+    if(!req.file.originalname.match(/\.(jpg|png|jpeg|gif)$/)){
+        return res.status(400).json({msg: 'only jpeg, jpg, gif and png are authorized'});
+    } else {
+        res.status(201).send({filename: req.file.filename, file: req.file});
+    }
+});
+
+
 
 
 router.post('/sendmail', (req,res) => {

@@ -39,7 +39,7 @@ export class MapboxmodifierComponent implements OnInit {
       value.forEach((news, index) => {
         if(news.map)
           coordinates[index] = this.fillOne(news.coordinates)});
-    });
+    }).catch(err => console.log(err));
     return coordinates;
   }
 
@@ -64,10 +64,4 @@ interface CoordinatesType {
 class CoordinatesClass implements CoordinatesType{
   coordinates: number[];
   type: string;
-
-  CoordinatesClass(){
-    this.coordinates = [0,0];
-    this.type='Point';
-  }
-
 }

@@ -2,8 +2,9 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const News = require('../models/new');
 const download = require('image-downloader');
-
-
+// const FormData = require('form-data');
+// const Jimp =  require('jimp');
+// const fs = require('fs');
 
 let getData = html => {
     let news = new News();
@@ -17,9 +18,7 @@ let getData = html => {
     };
     download.image(options)
         .then(({ filename}) => {
-            console.log(filename);
             news.images[0].url =filename.substring(8);
-            console.log(news.images[0].url);
         }).catch((err) => {
         console.log(err);
     });
@@ -67,11 +66,12 @@ let getData = html => {
                 news.images.push({
                     id:indicator,
                     name:name,
+                    // don't forget to change this -->
                     url:url.replace('https://alytusplius.lt/sites/default/files/images2019/','')
                 });
 
                 download.image(options)
-                    .then(({ filename }) => {
+                    .then(({ filename, image}) => {
                         console.log(filename);
                     }).catch((err) => {
                     console.log(err);
