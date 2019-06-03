@@ -14,10 +14,14 @@ let getData = html => {
             $('.views-field span div div a img').attr('title'), url:$('.views-field span div div a img').attr('src')};
     const options = {
         url: news.images[0].url,
-        dest: 'uploads'
+        dest: '../../uploads'
     };
+    let urlOk = news.images[0].url.split('/');
+    let urlmesburnes = urlOk[9].split('?');
+    news.images[0].url = urlmesburnes[0];
     download.image(options)
         .then(({ filename}) => {
+            console.log(filename);
             news.images[0].url =filename.substring(8);
         }).catch((err) => {
         console.log(err);
@@ -71,7 +75,7 @@ let getData = html => {
                 });
 
                 download.image(options)
-                    .then(({ filename, image}) => {
+                    .then(({ filename}) => {
                         console.log(filename);
                     }).catch((err) => {
                     console.log(err);
@@ -88,7 +92,6 @@ let getData = html => {
     news.date = date[1].substring(1);
     news.map = false;
     news.coordinates = [];
-    console.log(news);
     return news;
 };
 
@@ -96,20 +99,9 @@ async function pliusData (url) {
     let html;
     await axios.get(url).then( (res) => {
         html = res.data;
-        //console.log(html)
     });
     return getData(html);
 }
 
 module.exports.pliusData = pliusData;
 
-async function test (url) {
-    let html;
-    await axios.get(url).then( (res) => {
-        html = res.data;
-        //console.log(html)
-    });
-    return getData(html);
-}
-
-test('https://alytusplius.lt/naujienos/pasauline-diena-be-tabako-nezalingo-rukymo-budo-nera');

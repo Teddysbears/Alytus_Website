@@ -23,7 +23,7 @@ export class MapboxmodifierComponent implements OnInit {
   zoom = 12;
   allNews: Observable<News[]>;
   coordinatesArray: CoordinatesType[] = [new CoordinatesClass()];
-
+  allNewsMap: News[] = [];
 
   constructor(private newsService: NewsService) { }
 
@@ -37,8 +37,11 @@ export class MapboxmodifierComponent implements OnInit {
     let coordinates: CoordinatesType[] = [new CoordinatesClass()];
     this.allNews.forEach(value => {
       value.forEach((news, index) => {
-        if(news.map)
-          coordinates[index] = this.fillOne(news.coordinates)});
+        if (news.map) {
+          coordinates[index] = this.fillOne(news.coordinates);
+          this.allNewsMap.push(news);
+        }
+      });
     }).catch(err => console.log(err));
     return coordinates;
   }

@@ -48,24 +48,25 @@ async function getFeed(feedurl,lastModified, newDate, ee) {
                     if (feedurl==='http://www.alytauslaikas.lt/feed/') {
                         ee.emit('newlaikas', `${moment(item.date).format('YYYY-MM-DDThh:mm:ss:SSS')}Z`);
                     } else {
+                        console.log(item.date);
                         ee.emit('newplius', `${moment(item.date).format('YYYY-MM-DDThh:mm:ss:SSS')}Z`);
 
                     }
                 }
 
                 if (feedurl === 'http://www.alytauslaikas.lt/feed/') {
-                    //out('laikas recorded\n');
-                     axios.post('http://localhost:3000/news', altLaikasParsing.laikasData(item.link)
+                    out('laikas recorded\n');
+                     await axios.post('http://localhost:3000/news', await altLaikasParsing.laikasData(item.link)
                          .then(data => console.log(data))
                          .catch(err => console.log(err))
                      );
                     //console.log('laikasnews' + item.date);
                 } else if (feedurl === 'http://www.alytusplius.lt/rss.xml') {
                     //out('plius recorded\n');
-                     axios.post('http://localhost:3000/news', altPliusParsing.pliusData(item.link)
-                         .then(data => console.log(data))
-                         .catch(err => console.log(err))
-                     );
+                     await axios.post('http://localhost:3000/news', await altPliusParsing.pliusData(item.link))
+                         .then(response => console.log(response))
+                         .catch(err => console.log(err)
+                         );
                     //console.log('pliusnews' + item.date);
                 } else console.log('bad feed address, please check');
 

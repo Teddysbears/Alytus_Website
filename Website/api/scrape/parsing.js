@@ -9,6 +9,7 @@ let changelaikasDate = (date) => {
     laikasDate=date;
 };
 let changepliusDate = (date) => {
+    console.log("date change");
     pliusDate=date;
 };
 
@@ -27,12 +28,9 @@ let out = (str) => {
 setInterval( () => {
     //console.log(pliusDate);
     parser.getFeed('http://www.alytusplius.lt/rss.xml',pliusDate, pliusDate, ee, out);
-    },10000);
+    },1000);
 
-/*setInterval(() => {
+setInterval(() => {
     //console.log(laikasDate);
     parser.getFeed('http://www.alytauslaikas.lt/feed/',laikasDate, laikasDate,ee, out);
     },10000);
-
-
-*/

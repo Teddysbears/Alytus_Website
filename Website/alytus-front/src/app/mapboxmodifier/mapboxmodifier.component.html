@@ -25,6 +25,7 @@
     (mouseLeave)="cursorStyle = ''"
   >
   </mgl-layer>
+  <div *ngFor="let newsMap of allNewsMap; let index=i;">
   <mgl-marker
     #myMarker
     [lngLat]="[-77.0353, 38.8895]"
@@ -46,4 +47,5 @@
   >
     Construction on the Washington Monument began in 1848.
   </mgl-popup>
+  </div>
 </mgl-map>
