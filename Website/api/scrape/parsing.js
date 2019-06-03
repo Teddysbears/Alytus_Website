@@ -1,8 +1,9 @@
 const parser = require('./conditionnalParsing');
 const event = require('events');
+const moment = require('moment');
 
-let laikasDate = '2019-05-24T07:01:22.000Z';
-let pliusDate = '2019-05-27T16:45:26.000Z';
+let laikasDate = '2019-06-03T13:02:13.519Z';
+let pliusDate = '2019-06-03T13:02:13.519Z';
 
 let changelaikasDate = (date) => {
     laikasDate=date;
@@ -26,12 +27,12 @@ let out = (str) => {
 setInterval( () => {
     //console.log(pliusDate);
     parser.getFeed('http://www.alytusplius.lt/rss.xml',pliusDate, pliusDate, ee, out);
-    },500);
+    },10000);
 
-setInterval(() => {
+/*setInterval(() => {
     //console.log(laikasDate);
     parser.getFeed('http://www.alytauslaikas.lt/feed/',laikasDate, laikasDate,ee, out);
     },10000);
 
 
-
+*/

@@ -2,6 +2,7 @@ const altLaikasParsing = require('./altLaikasParsing');
 const altPliusParsing = require('./altPliusParsing');
 const moment = require('moment');
 const parsing = require('./parsing');
+const axios = require ('axios');
 
 const FeedParser = require('feedparser');
 const request = require('request');
@@ -17,9 +18,6 @@ async function getFeed(feedurl,lastModified, newDate, ee) {
     checkrequest.setHeader('maxredirects',1);
 
     let htmlgetrequest = request(feedurl);
-
-    let articles = [];
-
 
     await checkrequest.once('response', async function (response) {
         if (response.statusCode === 304) {
@@ -39,8 +37,6 @@ async function getFeed(feedurl,lastModified, newDate, ee) {
     feedparser.once('readable', async function () {
         let meta = this.meta;
         let item;
-        let current = {};
-
 
         while ((item = this.read())) {
 
@@ -59,15 +55,20 @@ async function getFeed(feedurl,lastModified, newDate, ee) {
 
                 if (feedurl === 'http://www.alytauslaikas.lt/feed/') {
                     //out('laikas recorded\n');
-                    current  = await altLaikasParsing.laikasData(item.link);
+                     axios.post('http://localhost:3000/news', altLaikasParsing.laikasData(item.link)
+                         .then(data => console.log(data))
+                         .catch(err => console.log(err))
+                     );
                     //console.log('laikasnews' + item.date);
                 } else if (feedurl === 'http://www.alytusplius.lt/rss.xml') {
                     //out('plius recorded\n');
-                    current  = await altPliusParsing.pliusData(item.link);
+                     axios.post('http://localhost:3000/news', altPliusParsing.pliusData(item.link)
+                         .then(data => console.log(data))
+                         .catch(err => console.log(err))
+                     );
                     //console.log('pliusnews' + item.date);
                 } else console.log('bad feed address, please check');
-                articles.push(current );
-                console.log(current );
+
             }
         }
         //console.log(articles);
