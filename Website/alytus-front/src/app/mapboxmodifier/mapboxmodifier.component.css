@@ -10,3 +10,10 @@ mgl-map {
 .mapboxgl-canvas {
   width: 100%;
 }
+
+.marker {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
