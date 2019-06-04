@@ -25,6 +25,7 @@ export class MapboxmodifierComponent implements OnInit {
   coordinatesArray: CoordinatesType[] = [new CoordinatesClass()];
   allNewsMap: News[] = [];
 
+
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
