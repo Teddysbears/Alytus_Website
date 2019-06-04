@@ -5,27 +5,6 @@
   [cursorStyle]="cursorStyle"
   (load)="map = $event"
 >
-<!--  <mgl-geojson-source-->
-<!--    id="symbols-source"-->
-<!--  >-->
-<!--    <mgl-feature-->
-<!--      *ngFor="let geometry of coordinatesArray"-->
-<!--      [geometry]="geometry"-->
-<!--    ></mgl-feature>-->
-<!--  </mgl-geojson-source>-->
-<!--  <mgl-layer-->
-<!--    id="symbols"-->
-<!--    type="symbol"-->
-<!--    source="symbols-source"-->
-<!--    [layout]="{-->
-<!--        'icon-image': 'marker-15'-->
-<!--      }"-->
-<!--    (click)="centerMapTo($event)"-->
-<!--    (mouseEnter)="cursorStyle = 'pointer'"-->
-<!--    (mouseLeave)="cursorStyle = ''"-->
-<!--  >-->
-<!--  </mgl-layer>-->
-
   <mgl-marker *ngFor="let feature of geojsonGenerator.features; let index=i"  [feature]="feature">
     <div
       class="marker"
