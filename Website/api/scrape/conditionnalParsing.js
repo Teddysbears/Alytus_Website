@@ -1,9 +1,7 @@
 const altLaikasParsing = require('./altLaikasParsing');
 const altPliusParsing = require('./altPliusParsing');
 const moment = require('moment');
-const parsing = require('./parsing');
 const axios = require ('axios');
-
 const FeedParser = require('feedparser');
 const request = require('request');
 
@@ -12,19 +10,17 @@ let feedparser = new FeedParser();
 
 async function getFeed(feedurl,lastModified, newDate, ee) {
 
-    let checkrequest = request(feedurl);
-    //console.log(lastModified);
-    checkrequest.setHeader('if-modified-since',lastModified.toLowerCase());
-    checkrequest.setHeader('maxredirects',1);
+    let feedcheckrequest = request(feedurl);
+    feedcheckrequest.setHeader('if-modified-since',lastModified.toLowerCase());
+    let feedgetrequest = request(feedurl);
 
-    let htmlgetrequest = request(feedurl);
-
-    await checkrequest.once('response', async function (response) {
+    await feedcheckrequest.once('response', async function (response) {
         if (response.statusCode === 304) {
-            console.log("Error : nothing changed " + response.statusCode);
+            console.log(`Error : nothing changed ${response.statusCode}`);
         } else {
-            await htmlgetrequest.once('response', async function(response) {
+            await feedgetrequest.once('response', async function(response) {
                 if (response.statusCode !== 200) {
+                    console.log(`Error : feed not found ${response.statusCode}`);
                 } else {
                     await this.pipe(feedparser);
                 }
@@ -33,53 +29,41 @@ async function getFeed(feedurl,lastModified, newDate, ee) {
     });
 
 
-
     feedparser.once('readable', async function () {
-        let meta = this.meta;
-        let item;
 
+        let item;
         while ((item = this.read())) {
 
-            //out(item.date);
             if (moment(item.date) > moment(lastModified)) {
 
-                //console.log(item.date);
                 if (moment(item.date) > moment(newDate)) {
+
                     if (feedurl==='http://www.alytauslaikas.lt/feed/') {
                         ee.emit('newlaikas', `${moment(item.date).format('YYYY-MM-DDThh:mm:ss:SSS')}Z`);
                     } else {
-                        console.log(item.date);
                         ee.emit('newplius', `${moment(item.date).format('YYYY-MM-DDThh:mm:ss:SSS')}Z`);
-
                     }
                 }
 
                 if (feedurl === 'http://www.alytauslaikas.lt/feed/') {
-                    out('laikas recorded\n');
-                     await axios.post('http://localhost:3000/news', await altLaikasParsing.laikasData(item.link)
+                     await axios.post('http://localhost:3000/news', await altLaikasParsing.laikasData(item.link))
                          .then(data => console.log(data))
-                         .catch(err => console.log(err))
-                     );
-                    //console.log('laikasnews' + item.date);
-                } else if (feedurl === 'http://www.alytusplius.lt/rss.xml') {
-                    //out('plius recorded\n');
-                     await axios.post('http://localhost:3000/news', await altPliusParsing.pliusData(item.link))
-                         .then(response => console.log(response))
                          .catch(err => console.log(err)
                          );
-                    //console.log('pliusnews' + item.date);
+                     //await altLaikasParsing.laikasData(item.link);
+                } else if (feedurl === 'http://www.alytusplius.lt/rss.xml') {
+                     await axios.post('http://localhost:3000/news', await altPliusParsing.pliusData(item.link))
+                         .then(data => console.log(data))
+                         .catch(err => console.log(err)
+                         );
+
                 } else console.log('bad feed address, please check');
 
             }
         }
-        //console.log(articles);
-
     });
 }
 
-
-//getFeed('http://www.alytauslaikas.lt/feed/');
-//getFeed('http://www.alytusplius.lt/rss.xml');
 
 module.exports.getFeed = getFeed;
 

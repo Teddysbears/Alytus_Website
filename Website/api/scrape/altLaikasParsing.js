@@ -8,7 +8,7 @@ let getData = html => {
     let news = new News ();
     let indicator = 0;
     const $ = cheerio.load(html);
-    $('*').html().replace('', "&shy");
+    //$('*').html().replace('', "&shy");
 
 
     let str;
@@ -42,27 +42,26 @@ let getData = html => {
                 let url = $(elem).attr('src');
                 let name = $(elem).attr('alt');
                 if(url.charAt(0) === '/') url = 'http://alytauslaikas.lt/' + url;
-                console.log(url);
                 const options = {
                     url: url,
                     dest: '../../uploads'
                 };
-                let urlOk= url.split('/');
+                url = url.split('/')[7];
 
                 news.images.push({
                     id:indicator,
                     name:name,
-                    url: urlOk[9]
+                    url: url
                 });
 
                 download.image(options)
                     .then(({ filename }) => {
-                        console.log(filename);
-                        console.log(news.images[0].url);
+                        //console.log(filename);
+                        //console.log(news.images[0].url);
                     }).catch((err) => {
-                    console.log(err);
+                    //console.log('\n\n' + err + '\n\n');
                 });
-                console.log('img : ' + $(elem).attr('alt'));
+                //console.log('img : ' + $(elem).attr('alt'));
                 indicator++;
                 break;
         }
@@ -72,13 +71,15 @@ let getData = html => {
 
     news.writer = 'Unknown';
 
+    let actualdate = $('.entry-date.published').text();
+    news.date=actualdate;
 
-    news.date =$('.entry-date.published').text();
     news.map = false;
-    news.coordinates = [];
+
+    news.coordinates = [0, 0];
+
     return news;
 };
-
 
 async function laikasData (url) {
     let html;

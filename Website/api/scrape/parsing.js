@@ -2,16 +2,17 @@ const parser = require('./conditionnalParsing');
 const event = require('events');
 const moment = require('moment');
 
-let laikasDate = '2019-06-03T13:02:13.519Z';
-let pliusDate = '2019-06-03T13:02:13.519Z';
+/*
+let laikasDate = moment().format('YYYY-MM-DDThh:mm:ss.SSS')+'Z';
+let pliusDate = moment().format('YYYY-MM-DDThh:mm:ss.SSS')+'Z';
+*/
+
+let laikasDate = '2019-04-30T00:00:00.000Z';
 
 let changelaikasDate = (date) => {
-    laikasDate=date;
-};
+    laikasDate=date;};
 let changepliusDate = (date) => {
-    console.log("date change");
-    pliusDate=date;
-};
+    pliusDate=date;};
 
 module.exports.changepliusDate = changepliusDate;
 module.exports.changelaikasDate = changelaikasDate;
@@ -19,18 +20,11 @@ module.exports.changelaikasDate = changelaikasDate;
 let ee = new event.EventEmitter();
 
 ee.on('newlaikas', changelaikasDate);
-ee.on('newplius', changepliusDate);
 
-let out = (str) => {
-    console.log(str);
-};
+setInterval(async function() {
+    await parser.getFeed('http://www.alytauslaikas.lt/feed/',laikasDate, laikasDate,ee);
+    },15000,(1));
 
-setInterval( () => {
-    //console.log(pliusDate);
-    parser.getFeed('http://www.alytusplius.lt/rss.xml',pliusDate, pliusDate, ee, out);
-    },1000);
 
-setInterval(() => {
-    //console.log(laikasDate);
-    parser.getFeed('http://www.alytauslaikas.lt/feed/',laikasDate, laikasDate,ee, out);
-    },10000);
+
+

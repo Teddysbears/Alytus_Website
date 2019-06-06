@@ -65,7 +65,7 @@ let getData = html => {
                 if(url.charAt(0) === '/') url = 'https://alytusplius.lt' + url;
                 const options = {
                     url: url,
-                    dest: 'uploads'
+                    dest: '../../uploads'
                 };
                 news.images.push({
                     id:indicator,
@@ -86,12 +86,17 @@ let getData = html => {
     });
     let cleanTitle = $('.views-field-title').text();
     news.title = cleanTitle.substring(8,cleanTitle.length-4);
+
     let splitString = $('.post').text().split('•');
     news.writer = splitString[0];
+
     let date = splitString[2].split(',');
     news.date = date[1].substring(1);
+
     news.map = false;
-    news.coordinates = [];
+
+    news.coordinates = [0, 0];
+
     return news;
 };
 
