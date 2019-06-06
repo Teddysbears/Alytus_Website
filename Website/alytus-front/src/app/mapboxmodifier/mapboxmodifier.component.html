@@ -5,47 +5,19 @@
   [cursorStyle]="cursorStyle"
   (load)="map = $event"
 >
-  <mgl-geojson-source
-    id="symbols-source"
-  >
-    <mgl-feature
-      *ngFor="let geometry of coordinatesArray"
-      [geometry]="geometry"
-    ></mgl-feature>
-  </mgl-geojson-source>
-  <mgl-layer
-    id="symbols"
-    type="symbol"
-    source="symbols-source"
-    [layout]="{
-        'icon-image': 'marker-15'
-      }"
-    (click)="centerMapTo($event)"
-    (mouseEnter)="cursorStyle = 'pointer'"
-    (mouseLeave)="cursorStyle = ''"
-  >
-  </mgl-layer>
-  <div *ngFor="let newsMap of allNewsMap; let index=i;">
-  <mgl-marker
-    #myMarker
-    [lngLat]="[-77.0353, 38.8895]"
-  >
+  <mgl-marker *ngFor="let feature of geojsonGenerator.features; let index=i"  [feature]="feature">
     <div
+      class="marker"
       [ngStyle]="{
-          'background-image': 'url(https://www.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg)',
-          'background-size': 'cover',
-          width: '50px',
-          height: '50px',
-          'border-radius': '50%',
-          cursor: 'pointer'
+          'background-image': feature.properties.image,
+          width: 50 + 'px',
+          height: 50 + 'px',
+           'background-repeat': 'no-repeat',
+            'background-size': 'cover'
         }"
+      (click)="redirectToNew(feature.properties.redirection)"
     >
     </div>
   </mgl-marker>
-  <mgl-popup
-    [marker]="myMarker"
-  >
-    Construction on the Washington Monument began in 1848.
-  </mgl-popup>
-  </div>
+
 </mgl-map>
