@@ -5,7 +5,7 @@ const multer = require('multer');
 const crypto = require('crypto');
 const path = require('path');
 const nodemailer = require('nodemailer');
-
+const Keyword = require('../models/keyword');
 
 
 router.get('', (req,res) => {
@@ -36,6 +36,16 @@ router.get('/news/:id', (req,res) => {
         }));
 });
 
+router.get('/keywords', (req, res) => {
+   Keyword.find()
+       .sort({count:-1})
+       .exec()
+       .then(keyword => res.status(200).json(keyword))
+       .catch(err => res.status(404).json({
+           mlg:'error keyword get', err: err
+       }));
+});
+
 router.post('/news', (req,res)=> {
     const New = new News(req.body);
     New.save((err, News) =>{
@@ -43,6 +53,7 @@ router.post('/news', (req,res)=> {
         res.status(201).json(News);
     });
 });
+
 
 
 //file upload configuration
@@ -137,6 +148,15 @@ async function sendMail(user, callback){
     let info = await transporter.sendMail(mailOptions);
     callback(info);
 }
+
+router.post('/keywords', (req, res) => {
+    const keyword = new Keyword(req.body);
+    keyword.save((error, Keyword) => {
+        if (error) return res.status(500);
+        res.status(201).json(Keyword);
+    })
+});
+
 
 let lastUploadedImageName = '';
 
