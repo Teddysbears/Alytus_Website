@@ -64,7 +64,6 @@ export class NewsComponent implements OnInit {
 
   //Create img beacon for all image of a news
   private static imgCreatorBeacon(imageElement: { name: string; url: string; id: number }) {
-    /*tmp because we didn't upload images on our server*/
   return `<hr><div class="news-image"> <img class="img-fluid" src="${this.imagePath +imageElement.url}" alt=${imageElement.name}></div>`;
   }
 

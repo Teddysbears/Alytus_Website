@@ -17,8 +17,8 @@ let getData = html => {
         dest: '../../uploads'
     };
     let urlOk = news.images[0].url.split('/');
-    let urlmesburnes = urlOk[9].split('?');
-    news.images[0].url = urlmesburnes[0];
+    let tmpUrl = urlOk[9].split('?');
+    news.images[0].url = tmpUrl[0];
     download.image(options)
         .then(({ filename}) => {
             console.log(filename);
