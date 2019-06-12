@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const keywordSchema = new mongoose.Schema({
     word: String,
+    trad: String,
     count: Number,
     type: String,
     isLocation: Boolean,

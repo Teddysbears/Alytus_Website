@@ -2,6 +2,9 @@ const Occurences = require('occurences');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const Keyword = require('../models/keyword');
+const translate = require('translate');
+translate.engine = 'yandex';
+translate.key = 'trnsl.1.1.20190607T060759Z.7d74b186b6bb5e3c.21515b5b03794948de2ed88d20c8e320c6dd4759';
 
 let urls = [
     'https://alytusplius.lt/naujienos/kovoje-del-vandens-motociklu-naujas-rajono-politiku-sprendimas',
@@ -126,21 +129,37 @@ function getKeyword (url) {
                 occ = new Occurences(cheerio.load(response.data).text());
                 occ.getSorted('desc').forEach(async (couple) => {
                     if (couple.number > 2) {
-                        //console.log(couple.value);
-                        let tmp = new Keyword();
-                        tmp.word = couple.value;
-                        tmp.count = couple.number;
-                        await axios.post('http://localhost:3000/keywords', tmp)
-                            .then( (data) => console.log(data))
-                            .catch((err) => console.log(err));
-                    }});
-
+                        if (couple.value !== '' && -1 === couple.value.search(/\n|\t/g)) {
+                            //console.log(couple.value);
+                            let tmp = new Keyword();
+                            tmp.word = couple.value;
+                            tmp.count = couple.number;
+                            tmp.trad = '';
+                            translate(couple.value, {from: 'lt', to: 'en'})
+                                .then((text) => {
+                                    //console.log(text);
+                                    tmp.trad = text;
+                                    axios.post('http://localhost:3000/keywords', tmp)
+                                        .then((data) => {
+                                            //console.log(data);
+                                        })
+                                        .catch((error) => {
+                                            console.log(error)
+                                        });
+                                })
+                                .catch((error) => {
+                                    console.log(error)
+                                });
+                            //console.log(tmp.word.search(/\n|\t/g));
+                        }
+                    }
+                })
             })
             .catch((error) => {
                 //console.log('\n\nERROR\n' + value + '\n\n');
                 console.log(error);
             });
-    });
+    })
 }
 
 getKeyword(urls);
