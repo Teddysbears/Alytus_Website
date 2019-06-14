@@ -32,10 +32,8 @@ export class HomeComponent implements OnInit {
     this.index = 0;
     this.dateNow = new Date();
     this.formattedDate = this.getFormattedDate();
-    console.log(this.formattedDate);
     this.allNews = this.newsService.getNews();
     this.allNews.forEach(x => x.forEach((news) => this.getLastNewsOf(news)));
-    console.log(this.lastNewsOf);
   }
 
   getFormattedDate(){

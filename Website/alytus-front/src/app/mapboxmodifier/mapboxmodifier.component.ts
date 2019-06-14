@@ -20,7 +20,6 @@ export class MapboxmodifierComponent implements OnInit {
   cursorStyle: string;
 
   center = [24.05474,54.40135];
-  iconImage = this.imagePath + "9055574091e6c25bc388cc6cfb7dd8e7.png";
   zoom = 12;
   allNews: Observable<News[]>;
   coordinatesArray: GeometryType[] = [new GeometryClass()];
@@ -36,8 +35,6 @@ export class MapboxmodifierComponent implements OnInit {
       .getNews();
     this.coordinatesArray = this.fillCoordinatesArray();
     this.geojsonGenerator.features = [];
-    console.log(this.allNewsMap);
-    console.log(this.geojsonGenerator);
   }
 
   private fillCoordinatesArray() {

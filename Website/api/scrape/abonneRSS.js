@@ -4,8 +4,6 @@ const request = require('request'); // for fetching the feed
 
 let lastModified = 'Thu, 15 May 2019 06:31:18 GMT';
 let req = request('http://www.alytauslaikas.lt/feed/');
-//'http://www.alytusplius.lt/rss.xml'
-//'http://www.alytauslaikas.lt/feed/'
 let feedparser = new FeedParser();
 
 req.on('error', function (error) {

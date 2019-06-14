@@ -24,7 +24,6 @@ export class AboutUsComponent implements OnInit {
   }
 
   sendMail() {
-    console.log(this.sendMailForm.value);
     let user = {
       email:  this.sendMailForm.get('email').value,
       subject: this.sendMailForm.get('subject').value,

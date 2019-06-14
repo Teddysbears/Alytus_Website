@@ -17,7 +17,6 @@ export class NewsTypePoliticsComponent implements OnInit {
 
   ngOnInit() {
     this.newsService.getNews().subscribe(news => this.getAllPoliticsNews(news));
-    console.log(this.politicsNews);
   }
 
   private getAllPoliticsNews(news: News[]) {

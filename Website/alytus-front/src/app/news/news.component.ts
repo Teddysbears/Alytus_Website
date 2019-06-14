@@ -37,7 +37,6 @@ export class NewsComponent implements OnInit {
   * Fill arrayTemplate with all news infos beacon.
   * */
   fillTemplate(news: News) {
-    console.log(news);
     this.title = news.title;
     this.time = news.date;
     this.writer= news.writer;
@@ -47,7 +46,6 @@ export class NewsComponent implements OnInit {
     let idx;
     for (idx = 0; idx<news.images.length; idx++) {
       let index = news.images[idx].id;
-      console.log(index);
       this.arrayTemplate[index] = NewsComponent.imgCreatorBeacon(news.images[idx]);
     }
     for (idx = 0; idx<news.contents.length; idx++) {
@@ -58,7 +56,6 @@ export class NewsComponent implements OnInit {
       let index = news.subTitles[idx].id;
       this.arrayTemplate[index] = NewsComponent.subTitleCreatorBeacon(news.subTitles[idx]);
     }
-    console.log(this.arrayTemplate);
   }
 
   //Create img beacon for all image of a news

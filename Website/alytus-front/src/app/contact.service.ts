@@ -11,7 +11,6 @@ export class ContactService {
   constructor(private htttpClient: HttpClient) { }
 
   sendMail(user) {
-    console.log(user);
     return this.htttpClient.post<any>(`${this.baseUrl}`,user);
   }
 }

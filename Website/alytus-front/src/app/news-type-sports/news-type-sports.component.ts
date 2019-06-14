@@ -18,7 +18,6 @@ export class NewsTypeSportsComponent implements OnInit {
 
   ngOnInit() {
     this.newsService.getNews().subscribe(news => this.getAllSportsNews(news));
-    console.log(this.sportsNews);
   }
 
   private getAllSportsNews(news: News[]) {

@@ -94,9 +94,7 @@ export class NewsCreateComponent implements OnInit {
 
   changeImage(control,index) {
     control.at(index).patchValue({url:this.filename});
-    console.log(this.filename);
     this.filename ="";
-    console.log(this.filename);
   }
 
   upload(control, index){
@@ -115,7 +113,6 @@ export class NewsCreateComponent implements OnInit {
 
   createNews(formDirective: FormGroupDirective) {
     if(this.createNewsForm.valid) {
-      console.log(this.createNewsForm.value);
       this.newsService
         .createNews(this.createNewsForm.value)
         .subscribe(data => this.handleSucces(data,formDirective),err => NewsCreateComponent.handleError(err));
