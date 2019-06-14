@@ -175,14 +175,15 @@ router.put('/news/:id', upload.single('image'), (req, res) => {
     });
 });
 
-router.put('/keyword/:word', (req,res) => {
+router.put('/keywords/:word', (req,res) => {
     const word = req.param.word;
     const conditions = { word: word};
     const keyword = {...req.body};
     const update = { $set: keyword};
     const options = {
         upsert: true,
-        keyword: true
+        keyword: true,
+        useFindAndModify: false,
     };
     Keyword.findOneAndUpdate(conditions, update, options, (err, response) => {
         if(err) return res.status(500).json({ msg: 'update keyword failed', error: err});

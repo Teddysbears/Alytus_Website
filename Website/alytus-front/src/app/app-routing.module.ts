@@ -15,6 +15,7 @@ import {NewsTypeBuildingsComponent} from "./news-type-buildings/news-type-buildi
 import {NewsTypeBusinessComponent} from "./news-type-business/news-type-business.component";
 import {NewsTypePoliticsComponent} from "./news-type-politics/news-type-politics.component";
 import {NewsTypeSportsComponent} from "./news-type-sports/news-type-sports.component";
+import {NewsSearchKeywordComponent} from "./news-search-keyword/news-search-keyword.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'news/type/business', component: NewsTypeBusinessComponent},
   { path: 'news/type/politics', component: NewsTypePoliticsComponent},
   { path: 'news/type/sports', component: NewsTypeSportsComponent},
+  { path: 'news/search/:keyword', component: NewsSearchKeywordComponent},
   { path: 'news', component: NewsListComponent},
   { path: 'tourism', component: TourismPageComponent},
   { path: 'aboutus', component: AboutUsComponent},

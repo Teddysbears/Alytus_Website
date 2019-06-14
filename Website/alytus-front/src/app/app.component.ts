@@ -32,4 +32,8 @@ constructor(private loadingBar: SlimLoadingBarService, private router: Router) {
       this.loadingBar.stop();
     }
   }
+
+  onSubmit(search: HTMLInputElement) {
+    this.router.navigate(['../../news/search', search.value]);
+  }
 }

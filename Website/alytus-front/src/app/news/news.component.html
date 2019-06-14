@@ -37,7 +37,7 @@
                   <div class="container-fluid">
                     <h5>Tags</h5>
                     <div *ngFor="let keyword of keywords">
-                      <button type="button" class="btn btn-primary">
+                      <button type="button" class="btn btn-primary" (click)="search(keyword)">
                         {{keyword}}
                       </button>
                     </div>

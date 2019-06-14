@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { News } from "../models/news";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
-import { ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NewsService} from "../news.service";
-//import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -22,7 +21,7 @@ export class NewsComponent implements OnInit {
   private static imagePath: string = environment.imagePath;
   imagePath: string = environment.imagePath;
 
-  constructor(private activatedRoute: ActivatedRoute ,private newsService: NewsService) { }
+  constructor(private activatedRoute: ActivatedRoute ,private newsService: NewsService, private router: Router) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -77,5 +76,9 @@ export class NewsComponent implements OnInit {
    */
   private static subTitleCreatorBeacon(subTitleElement: { sub: string; id: number }) {
     return `<p>${subTitleElement.sub}</p>`;
+  }
+
+  search(keyword: string) {
+    this.router.navigate(['../../news/search',keyword])
   }
 }

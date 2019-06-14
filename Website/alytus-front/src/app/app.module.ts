@@ -32,6 +32,7 @@ import { NewsTypeBuildingsComponent } from './news-type-buildings/news-type-buil
 import { NewsTypeSportsComponent } from './news-type-sports/news-type-sports.component';
 import { NewsTypeBusinessComponent } from './news-type-business/news-type-business.component';
 import { NewsTypePoliticsComponent } from './news-type-politics/news-type-politics.component';
+import { NewsSearchKeywordComponent } from './news-search-keyword/news-search-keyword.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { NewsTypePoliticsComponent } from './news-type-politics/news-type-politi
     NewsTypeSportsComponent,
     NewsTypeBusinessComponent,
     NewsTypePoliticsComponent,
+    NewsSearchKeywordComponent,
   ],
   imports: [
     BrowserModule,

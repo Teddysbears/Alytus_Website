@@ -122,37 +122,43 @@ function getKeyword (url) {
                 occ.getSorted('desc').forEach(async (couple) => {
                     if (couple.number > 2) {
                         if (couple.value !== '' && -1 === couple.value.search(/\n|\t/g)) {
-                            //console.log(couple.value);
-                            let tmp = new Keyword();
-                            tmp.word = couple.value;
-                            tmp.count = couple.number;
-                            tmp.trad = '';
-                            translate(couple.value, {from: 'lt', to: 'en'})
-                                .then((text) => {
-                                    //console.log(text);
-                                    tmp.trad = text;
-                                    axios.post('http://localhost:3000/keywords', tmp)
-                                        .then((data) => {
-                                            console.log(data);
-                                        })
-                                        .catch((error) => {
-                                            console.log(error)
-                                        });
-                                })
-                                .catch((error) => {
-                                    console.log(error)
-                                });
-                            //console.log(tmp.word.search(/\n|\t/g));
+                            if (exclud(couple.value)) {
+                                let tmp = new Keyword();
+                                tmp.word = couple.value;
+                                tmp.count = couple.number;
+                                tmp.trad = '';
+                                translate(couple.value, {from: 'lt', to: 'en'})
+                                    .then((text) => {
+                                        //console.log(text);
+                                        tmp.trad = text;
+                                        axios.post('http://localhost:3000/keywords', tmp)
+                                            .then((data) => {
+                                                console.log(data);
+                                            })
+                                            .catch((error) => {
+                                                console.log(error)
+                                            });
+                                    })
+                                    .catch((error) => {
+                                        console.log(error)
+                                    });
+                            }
                         }
                     }
                 })
             })
             .catch((error) => {
-                //console.log('\n\nERROR\n' + value + '\n\n');
                 console.log(error);
             });
     })
 }
 
+function exclud(word) {
+    let ex = true;
+    excluded.excluded.forEach(excludedWord => {
+        if(word === excludedWord) ex = false;
+    });
+    return ex;
+}
 
-//getKeyword(urls);
+getKeyword(urls);
