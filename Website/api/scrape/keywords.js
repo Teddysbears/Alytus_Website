@@ -5,6 +5,7 @@ const Keyword = require('../models/keyword');
 const translate = require('translate');
 translate.engine = 'yandex';
 translate.key = 'trnsl.1.1.20190607T060759Z.7d74b186b6bb5e3c.21515b5b03794948de2ed88d20c8e320c6dd4759';
+const excluded = require('./excluded');
 
 let urls = [
     'https://alytusplius.lt/naujienos/kovoje-del-vandens-motociklu-naujas-rajono-politiku-sprendimas',
@@ -58,13 +59,6 @@ let urls = [
     'http://www.alytauslaikas.lt/miesto-naujienos/lietuva-ruosiasi-visapusiskai-priimti-griztancius-ir-atvykstancius-vaikus/',
     'http://www.alytauslaikas.lt/miesto-naujienos/savivaldybe-palaiko-gyventojus-ir-siekia-uzdrausti-vandens-motociklu-plaukiojima-didziulio-ezere/',
     'https://www.alytausnaujienos.lt/ne-no-ri-me-ko-mer-ci-nio-pa-sta-del-ka-bin-si-mes-prie-vis-ko',
-    //'https://www.alytausnaujienos.lt/ter-ne-ti-nis-baz-ny-cios-siu-ly-mas-ne-vir-tu-lus-die-vas-ir-ne-lai-ki-ne-ben-druo-me-ne',
-    //'https://www.alytausnaujienos.lt/daug-dis-ku-si-ju-su-ke-les-pa-sta-tas-mies-cen-tre-bus-auks-tu-ze-mes-nis-o-jo-fa-sa-das-svie-sus',
-    //'https://www.alytausnaujienos.lt/zalio-ji-gat-ve-vel-nu-ken-te-jo-nuo-liu-ties',
-    //'https://www.alytausnaujienos.lt/sa-vi-val-dy-be-eme-si-tar-pi-nin-ko-vaid-mens-kaip-tie-su-bus-su-tur-gaus-pre-kiau-jais',
-    //'https://www.alytausnaujienos.lt/sei-mo-na-riams-aly-tis-kiams-eu-ro-par-la-men-rin-ki-mai-bu-vo-ne-sek-min-gi',
-    //'https://www.alytausnaujienos.lt/triuskinanti-gitano-nausedos-pergale-ir-dzukijoje',
-    //'https://www.alytausnaujienos.lt/sun-kia-vai-kys-te-gy-ve-nu-si-aly-tis-ke-klyst-ke-liu-ma-ne-gel-be-jo-duk-ra',
     'https://www.alytausnaujienos.lt/so-di-nin-kai-sa-vo-sau-gu-mui-su-si-tvar-ke-fal-tuo-ke-lio-kel-kras-cius',
     'https://www.alytausnaujienos.lt/tiks-las-pa-tei-si-na-prie-mo-nes',
     'https://www.alytausnaujienos.lt/daug-dziaugs-mo-aly-tis-kems-mo-ciu-tems-su-tei-ku-si-ide-ja-ke-lia-vo-te-kan-cios-sau-les-sa-lies',
@@ -72,14 +66,12 @@ let urls = [
     'https://www.alytausnaujienos.lt/daugu-ezeras-buti-ar-nebuti-vandens-motociklams',
     'https://www.alytausnaujienos.lt/kom-pa-ni-jo-je-blo-om-berg-dir-ban-tis-aly-tis-kis-triu-sia-net-atos-gas-kad-pa-au-ko-tu-lab-da',
     'https://www.alytausnaujienos.lt/vy-tau-tas-jast-rems-kas-ista-ty-mo-ne-pa-zei-de-da-nu-te-re-mei-kie-ne-pa-si-nau-do-jo-pa-rei-go',
-    //'https://www.alytausnaujienos.lt/pasipiktine-naujomis-sar-vo-ji-mo-sa-lemis-gyventojai-ketina-vaziuoti-net-i-seima',
     'https://www.alytausnaujienos.lt/re-fe-ren-du-mai-vie-nam-ne-uz-te-ko-bal-su-ki-tas-ne-ivy-ko',
     'https://www.alytausnaujienos.lt/pre-zi-den-rin-ki-mai-lie-tu-vo-je-pir-mau-ja-gri-da-si-mo-ny-te-aly-taus-ap-skri-ties-sa-vi-val-dy',
     'https://www.alytausnaujienos.lt/baltic-petroleum-plecia-veikla-atidaro-jau-77-degaline-apsilankiusiu-laukia-staigmenos',
     'https://www.alytausnaujienos.lt/ne-lo-vas-stum-dy-ti-rei-kia',
     'https://www.alytausnaujienos.lt/ne-ti-ke-tos-do-va-nos-se-sioms-aly-taus-kras-ma-moms-lai-kas-sau-ir-ga-li-my-be-pa-si-jus-ti-mo-te',
     'https://www.alytausnaujienos.lt/siuks-li-na-mas-no-ru-nu-mis-kas-sa-vi-nin-ku-gal-vos-skaus-mas',
-    //'https://www.alytausnaujienos.lt/nei-ro-tu-se-nei-sis-pro-jek-tuo-ja-mas-pa-sta-tas-sa-vai-me-ne-ra-blo-gi-ta-ciau-jie-sto-vi-ne-vie',
     'https://www.alytausnaujienos.lt/vai-ko-lu-po-mis-kal-ba-tie-sa',
     'https://www.alytausnaujienos.lt/sustabdyta-lietuvos-centro-partijos-pirmininko-naglio-puteikio-naryste-partijoje',
     'https://alytausgidas.lt/naujiena/27989-septynios-pensiju-kaupimo-naujoves',
@@ -162,4 +154,5 @@ function getKeyword (url) {
     })
 }
 
-getKeyword(urls);
+
+//getKeyword(urls);
