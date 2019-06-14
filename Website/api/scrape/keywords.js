@@ -116,7 +116,7 @@ let urls = [
     'https://alytausgidas.lt/naujiena/27947-z-treigys-jazminu-g-3-paviljonas-uzdaromas-nebus-',
     'https://alytausgidas.lt/naujiena/27944-karjera-alytuje-aplanke-jaunasis-rasytojas-interneto-milijonierius',
     'https://alytausgidas.lt/naujiena/27888-alytuje-gaminamu-ledu-pirkejai-pripazino-plombyra-ir-vintaza'
-]
+];
 
 
 let occ;
@@ -141,7 +141,7 @@ function getKeyword (url) {
                                     tmp.trad = text;
                                     axios.post('http://localhost:3000/keywords', tmp)
                                         .then((data) => {
-                                            //console.log(data);
+                                            console.log(data);
                                         })
                                         .catch((error) => {
                                             console.log(error)
