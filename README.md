@@ -6,17 +6,21 @@ The Alytus website project is a news site like many websites, but we generate va
 
 ### First step
   Launch mongodb database with **mongod** in a terminal.
+  ___
 
 ### Second step
   Launch the server in /Alytus_Website/Website with : **npm run start**.
+  ___
   
 ### Third step
   Launch the Angular/CLI server in Alytus_Website/Website/alytus-front with : **npm run start**.
+  ___
   
   Now the site works well if you want to add news in you have to launch a script.
   
 ### Fourth step
   Launch the script with **node ./api/scrape/altPliusParsing.js**
+  ___
   
   
   Now the news will be added to the website automatically
